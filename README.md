@@ -32,6 +32,8 @@ Android protects almost nothing here. Reading AOSP's own `PackageManagerService`
 
 So Declutter carries its own refusal list: **117 packages by name and 21 name patterns**, in Kotlin source, never in the catalogue file and never fetched from the internet — a bad catalogue update must not be able to unlock a bricking package. There is no override. No long-press, no developer mode, no "I know what I am doing" toggle.
 
+That tier is deliberately stricter than the tools written for people who can reflash a phone. Google Play services, the Play Store and the WebView provider are rated "expert, at your own risk" elsewhere, and removing them does not stop a phone booting. They are refused here because this app is for someone who cannot recover a phone that has stopped working properly, and because losing the Play Store takes away the means to undo everything else. That is a judgement, not a grading anybody else has agreed to.
+
 On top of that, four things are worked out fresh on every scan, because a fixed list cannot know them:
 
 - the launcher you are using now, and whether another one is installed;

@@ -92,6 +92,22 @@ fun AboutScreen(state: UiState, modifier: Modifier = Modifier) {
             style = MaterialTheme.typography.bodyLarge,
         )
 
+        SectionHeading("Why some apps are simply refused")
+        Text(
+            "Declutter is stricter than the debloating tools written for people who can " +
+                "reflash a phone. Google Play services, the Play Store and the component " +
+                "that draws web pages inside apps are all things an expert elsewhere is " +
+                "allowed to remove at their own risk. Here they are refused outright.",
+            style = MaterialTheme.typography.bodyLarge,
+        )
+        Text(
+                "That is a judgement, not a fact anybody else has agreed to. It rests on " +
+                "two things: removing them breaks a great deal at once, and losing the " +
+                "Play Store takes away the means to undo everything else. If you can put " +
+                "a phone back together from a computer, another tool will suit you better.",
+            style = MaterialTheme.typography.bodyLarge,
+        )
+
         SectionHeading("After a system update")
         Text(
             "A Motorola system update can quietly put removed apps back. If they " +

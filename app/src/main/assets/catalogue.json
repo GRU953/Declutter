@@ -346,7 +346,7 @@
    "what": "The Google Play Store. It installs apps, updates apps and system components, handles purchases and subscriptions, delivers Google Play system updates, and runs the Play Integrity checks that some apps rely on. It comes pre-loaded on the Edge 50 Fusion, and it is the only way to put back anything you remove.",
    "risk": "unsafe",
    "advice": "never",
-   "loses": "You can no longer install or update any app. That includes security updates to Chrome, Android System WebView, Google Play services and the Google Play system components, so the phone becomes steadily less secure. Purchases, subscriptions and refunds stop. Device-attestation checks fail, so many banking, payment and streaming apps refuse to run, and app licence checks fail. It also removes your way back, because you cannot reinstall anything you have taken off the phone.",
+   "loses": "You could no longer install or update any app. Chrome and Android System WebView arrive through it, so they would stop getting security updates. Buying, subscribing and refunding stop working on the phone, though anything already bought stays attached to your account. Many banking, payment and streaming apps check the phone through the Play Store before they open, and would refuse to run. It is also the only way to put back an app that is not built into the phone, so removing it takes away the way back.",
    "confidence": "high"
   },
   {
@@ -926,7 +926,7 @@
    "what": "The older framework underneath Google Play services. It handles signing in to Google accounts, registering the phone for cloud messaging, holding the phone's Google registration ID, and delivering updates to Play services.",
    "risk": "unsafe",
    "advice": "never",
-   "loses": "Account sign-in and cloud messaging stop working, so notifications stop arriving and your Google accounts can quietly disappear from the phone. Adding the accounts back often fails, and a factory reset may be the only way to recover. The phone's Google registration ID lives here, so removing it can also invalidate app licences and things you have paid for in the Play Store. The damage is on the same scale as removing Play services itself.",
+   "loses": "Google account sign-in and push messaging run through it, so notifications stop arriving and your Google accounts can quietly disappear from the phone. Adding them back often fails afterwards. Google publishes nothing about what this component does, so the full effect is not something anybody can state with confidence -- which is itself a reason to leave it alone.",
    "confidence": "high"
   },
   {
@@ -2191,12 +2191,12 @@
   },
   {
    "pkg": "com.motorola.msimsettings",
-   "label": "Dual SIM settings",
+   "label": "Dual SIM management",
    "vendor": "motorola",
-   "what": "Provides the dual-SIM screens and logic -- which SIM makes calls, which carries data, SIM naming.",
+   "what": "Motorola's dual-SIM component. It owns which SIM is used for calls, texts and mobile data, the SIM naming, the prompts asking which SIM to use, and eSIM subscription management.",
    "risk": "unsafe",
    "advice": "never",
-   "loses": "Dual-SIM management breaks: you may be unable to choose which SIM is used for calls or mobile data. On a two-SIM phone this is effectively a telephony break.",
+   "loses": "You could no longer choose which SIM does what, and its Settings screen would probably stop working. Calls, texts and mobile data themselves come from a different part of Android, so they would carry on. Nobody has established exactly how a phone behaves once this is gone, which on a two-SIM phone is reason enough to leave it.",
    "confidence": "high"
   },
   {
@@ -2801,12 +2801,12 @@
   },
   {
    "pkg": "com.qti.phone",
-   "label": "Qualcomm Phone / IMS Service",
+   "label": "Qualcomm telephony helper",
    "vendor": "qualcomm",
-   "what": "Qualcomm's telephony and IMS (internet-based calling) helper that sits between Android's dialler and the modem.",
+   "what": "A Qualcomm helper that sits between Android's calling system and the modem.",
    "risk": "expert",
    "advice": "disable",
-   "loses": "Can break VoLTE (calls over 4G), VoWiFi (calling over Wi-Fi) and in some cases calling altogether. Some users report calls still work after removal, but this is device-dependent and not worth the risk. If it must be touched, disable rather than uninstall so it can be re-enabled.",
+   "loses": "Not established. It holds code related to internet-based calling, so calls over 4G or Wi-Fi could be affected, but people who have removed it report that calling carried on working. Turning it off rather than removing it is the way to find out without committing to anything.",
    "confidence": "medium"
   },
   {
@@ -2911,12 +2911,12 @@
   },
   {
    "pkg": "com.qualcomm.location",
-   "label": "Qualcomm assisted-GPS service",
+   "label": "Qualcomm location service",
    "vendor": "qualcomm",
-   "what": "Qualcomm's assisted-GPS service. It downloads predicted satellite data so GPS locks on in seconds rather than minutes, and it sends a device ID, your location and nearby cell towers and Wi-Fi networks to Qualcomm's servers from time to time.",
+   "what": "Qualcomm's own location app. The satellite positioning itself is handled by vendor code and by Android, not by this app, so what this one adds on top is not documented anywhere public.",
    "risk": "advanced",
    "advice": "disable",
-   "loses": "GPS may still work but can take minutes instead of seconds to get a fix, and some apps may fail to get a location at all. Some phones have gone into boot loops when this was removed along with Android's fused location provider.",
+   "loses": "Probably nothing you would notice: the parts of the phone that actually find your position are not in this app and would carry on. Because nobody has established what it contributes, turning it off is the sensible way to try it.",
    "confidence": "medium"
   },
   {
@@ -2986,7 +2986,7 @@
    "what": "Manages the hand-off between mobile data and Wi-Fi and picks whichever connection is performing better. It is the machinery behind settings such as switching to mobile data when Wi-Fi is poor.",
    "risk": "expert",
    "advice": "disable",
-   "loses": "Wi-Fi and mobile data can both become less reliable, with the phone holding on to a dead Wi-Fi network instead of switching to mobile data.",
+   "loses": "Choosing between Wi-Fi and mobile data can get worse, so the phone may hold on to a dead Wi-Fi network instead of switching over. The background service that does the actual work stays on the phone, so this degrades that choice rather than removing it.",
    "confidence": "medium"
   },
   {
@@ -3013,7 +3013,7 @@
    "pkg": "com.qualcomm.qti.gpudrivers",
    "label": "Qualcomm Adreno graphics drivers",
    "vendor": "qualcomm",
-   "what": "The graphics drivers for the Adreno graphics chip, shipped as an app that can be updated. The real package name always has a chip codename and Android version added to the end, for example com.qualcomm.qti.gpudrivers.pineapple.api34. The exact ending for the Snapdragon 7s Gen 2 in the Edge 50 Fusion could not be established from a reliable source.",
+   "what": "The graphics drivers for the phone's graphics chip, shipped as an app that can be updated. The real package name always has a chip codename and Android version added to the end, and the exact name differs between phones.",
    "risk": "unsafe",
    "advice": "never",
    "loses": "Your phone may be left unable to draw anything on the screen, leaving a black screen or a phone that restarts over and over without finishing start-up.",

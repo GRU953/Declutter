@@ -24,6 +24,19 @@ package dev.gru953.declutter.domain
  *  3. Patterns matter as much as names. Resource overlays and chipset packages carry
  *     device-specific suffixes that cannot be enumerated in advance, so a name-only list is
  *     always incomplete.
+ *
+ * This list is deliberately stricter than the debloating tools aimed at people who can
+ * reflash a phone. Several packages refused here -- Google Play services, the Play Store,
+ * the WebView provider -- are rated "expert, at your own risk" elsewhere rather than
+ * never-remove, and removing them does not stop a phone booting. They are refused because
+ * this app is written for someone who cannot recover a phone that has stopped working
+ * properly, and because losing the Play Store in particular takes away the means to undo
+ * everything else. That is a judgement, not a grading anybody else has agreed to.
+ *
+ * A note on `com.google.android.trichromelibrary`: it is an Android static shared library,
+ * so `getInstalledPackages` does not return it without a flag this app never passes. It
+ * therefore never reaches the list at all; the pattern rule below is a second lock on a
+ * door that is already shut.
  */
 object Protection {
 
@@ -90,7 +103,6 @@ object Protection {
             "org.codeaurora.ims",
             "com.qualcomm.qti.telephonyservice",
             "com.qualcomm.qcrilmsgtunnel",
-            "com.motorola.msimsettings",
             "com.android.carrierconfig",
             "com.android.imsserviceentitlement",
             "com.qti.primarycardcontroller",
@@ -124,6 +136,13 @@ object Protection {
             "One community list ties it to system updates. Nobody has confirmed what it does " +
                 "on this handset, and the upside of removing it is nothing, so it stays.",
             "com.motorola.settings",
+        )
+        add(
+            "It owns which SIM does what. Without it you could not choose the SIM for " +
+                "calls, texts or mobile data, and its Settings screen would probably " +
+                "stop working. Nobody has established exactly how a phone behaves after " +
+                "this one is removed, which is reason enough on a two-SIM phone.",
+            "com.motorola.msimsettings",
         )
         add(
             "The phone would stop receiving government emergency and disaster warnings.",
@@ -171,9 +190,18 @@ object Protection {
             "com.motorola.setup",
             "com.google.android.setupwizard",
             "com.android.provision",
+        )
+        add(
+            "It is how anything gets installed or put back, including everything Declutter " +
+                "removes. Taking it away would take away the way back.",
+            "com.android.vending",
+        )
+        add(
+            "Notifications would stop arriving for nearly every app on the phone, your " +
+                "bank's included, and apps that check the phone before they open would " +
+                "refuse to run at all.",
             "com.google.android.gms",
             "com.google.android.gsf",
-            "com.android.vending",
         )
         add(
             "It protects the hardware. Without it the phone would not throttle or shut down when it overheats, or would not limit radio output near your body.",
