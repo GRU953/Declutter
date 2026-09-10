@@ -48,7 +48,7 @@ object Protection {
         fun add(reason: String, vararg pkgs: String) = pkgs.forEach { put(it, reason) }
 
         add(
-            "The phone will not start up without it.",
+            "Removing it risks a phone that will not start up again.",
             "android",
             "com.android.systemui",
             "com.android.settings",
@@ -153,10 +153,16 @@ object Protection {
             "com.android.keychain",
         )
         add(
-            "Every app that shows a web page inside itself would crash, and no replacement can be installed without a computer.",
+            "It draws the web pages inside other apps. With no working provider left, " +
+                "every app that shows a web page crashes. A replacement can be installed " +
+                "first -- Android System WebView Beta, from the Play Store, then chosen " +
+                "under Developer options -- but that is a deliberate job, not something " +
+                "to discover afterwards.",
             "com.android.webview",
             "com.google.android.webview",
             "com.google.android.webview.dev",
+            "com.google.android.webview.beta",
+            "com.google.android.webview.canary",
         )
         add(
             "The phone would stop receiving security updates, with no warning at the time.",
