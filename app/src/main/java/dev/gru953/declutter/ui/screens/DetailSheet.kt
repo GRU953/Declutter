@@ -115,10 +115,12 @@ fun DetailSheet(
             if (row.nonDisableable) {
                 Notice(
                     tone = NoticeTone.INFO,
-                    title = "The phone will refuse to turn this one off",
-                    body = "Motorola marks this package as ‘must stay on’, so a " +
-                        "‘turn off’ attempt is rejected by Android itself. That " +
-                        "refusal is a good reason to leave it as it is.",
+                    title = "Motorola marks this one ‘must stay on’",
+                    body = "Its Settings screen greys out the buttons for this package. " +
+                        "That is Motorola's own advice, and worth taking. It is not a " +
+                        "safety net though: the greying-out lives in the Settings app, " +
+                        "not in Android itself, so a change made this way would go " +
+                        "through anyway. Treat it as a reason to leave this one alone.",
                 )
             }
 

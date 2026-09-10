@@ -90,7 +90,6 @@ object Protection {
             "org.codeaurora.ims",
             "com.qualcomm.qti.telephonyservice",
             "com.qualcomm.qcrilmsgtunnel",
-            "com.motorola.carrierconfig",
             "com.motorola.msimsettings",
             "com.android.carrierconfig",
             "com.android.imsserviceentitlement",

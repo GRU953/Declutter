@@ -1,6 +1,8 @@
 // SPDX-License-Identifier: Apache-2.0
 // Copyright 2026 Aninda Sundar Howlader (GRU953)
 
+import org.gradle.api.tasks.PathSensitivity
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.compose)
@@ -111,6 +113,20 @@ android {
             "OldTargetApi",
         )
     }
+}
+
+/*
+ * CatalogueSafetyTest and CatalogueCopyTest read app/src/main/assets/catalogue.json from
+ * disk at run time, which Gradle cannot see. Without declaring it, Gradle calls the test
+ * task up to date whenever only the catalogue has changed -- so the catalogue could
+ * regress and the build would still pass. Declaring it is what makes "the build fails if
+ * this regresses" true rather than merely intended.
+ */
+tasks.withType<Test>().configureEach {
+    inputs
+        .file(layout.projectDirectory.file("src/main/assets/catalogue.json"))
+        .withPropertyName("packageCatalogue")
+        .withPathSensitivity(PathSensitivity.RELATIVE)
 }
 
 kotlin {
