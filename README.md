@@ -61,6 +61,8 @@ There is no Play Store listing. Download the APK a GitHub build produced:
 
 Then follow the Setup tab inside the app. It walks through Shizuku step by step.
 
+If you would rather read the whole thing first, [`docs/GETTING-STARTED.md`](docs/GETTING-STARTED.md) is the same route written out click by click, including what to do if something goes wrong.
+
 If Android refuses to install an update over an older copy, remove the old copy first. Builds are signed with Android's fallback debug key unless a release key is configured, and two different keys cannot replace each other.
 
 ### Building it yourself
