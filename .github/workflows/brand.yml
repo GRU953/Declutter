@@ -1,0 +1,26 @@
+# SPDX-License-Identifier: Apache-2.0
+# Copyright 2026 Aninda Sundar Howlader (GRU953)
+#
+# The GRU953 brand and licence check, so the rules keep applying after the session that
+# wrote them has ended.
+
+name: brand
+
+on:
+  push:
+    branches: ['**']
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+      - run: node scripts/brand-check.mjs .

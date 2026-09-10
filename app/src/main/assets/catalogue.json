@@ -1,0 +1,3663 @@
+{
+ "version": 1,
+ "reviewed": "2026-09-10",
+ "sources": [
+  "Motorola Edge 50 Fusion firmware dumps (cusco / cuscoi, Android 16, security patch 2026-04-01) -- package names read from APK manifests",
+  "Motorola's own non-disableable manifests shipped in system_ext/etc/nondisable",
+  "AOSP PackageManagerService, ProtectedPackages and ApplicationInfo source",
+  "Android Open Source Project modular system (APEX) module documentation",
+  "Community debloating lists consulted for breakage reports: Universal Android Debloater Next Generation, Muntashir Al-Islam's Android Debloat List, and a device-tested Motorola Edge 50 Neo list"
+ ],
+ "entries": [
+  {
+   "pkg": "com.aura.oobe.vodafone",
+   "label": "Runs in the background",
+   "vendor": "carrier",
+   "what": "Vodafone-branded version of the Aura app-bundle installer.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "Nothing beyond Vodafone's app offers. Present in the Indian firmware.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.ironsource.appcloud.oobe.hutchison",
+   "label": "App Cloud",
+   "vendor": "carrier",
+   "what": "ironSource 'App Cloud' setup-time app installer for Hutchison/Three networks.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "Nothing unless you are on a Hutchison network, and even then only app offers.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.motorola.att.phone.extensions",
+   "label": "AT&T Phone Extension",
+   "vendor": "carrier",
+   "what": "Adds AT&T (US) business-phone extension dialling to the dialler.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "Nothing outside AT&T. Ships on Indian firmware.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.motorola.attvowifi",
+   "label": "Runs in the background",
+   "vendor": "carrier",
+   "what": "AT&T (US) Wi-Fi calling support.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "Nothing outside AT&T; Wi-Fi calling on Indian networks does not use this.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.motorola.omadm.vzw",
+   "label": "Runs in the background",
+   "vendor": "carrier",
+   "what": "Verizon's device-management/provisioning client.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "Nothing on a non-Verizon phone. Known to show nagging notifications on bootloader-unlocked devices.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.motorola.spectrum.setup.extensions",
+   "label": "Runs in the background",
+   "vendor": "carrier",
+   "what": "Setup extensions for the US operator Spectrum.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "Nothing outside the US Spectrum network, though it does ship on Indian units.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.motorola.telprov",
+   "label": "Runs in the background",
+   "vendor": "carrier",
+   "what": "Provisioning support specific to the O2 network.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "Nothing unless you are on O2. Not found in Edge 50 Fusion firmware.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.motorola.visualvoicemail",
+   "label": "Voicemail",
+   "vendor": "carrier",
+   "what": "Visual voicemail, primarily for Verizon; on other networks it shows up as a generic, inactive Voicemail app.",
+   "risk": "advanced",
+   "advice": "uninstall",
+   "loses": "Visual voicemail (a list of messages you can tap) is lost; dialling your voicemail number still works. Not found in Edge 50 Fusion firmware.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.motorola.vzw.pco.extensions.pcoreceiver",
+   "label": "Runs in the background",
+   "vendor": "carrier",
+   "what": "Receives operator notifications for Verizon (US).",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "Nothing on a non-Verizon phone. Ships on Indian firmware and is pure dead weight there.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "de.telekom.tsc",
+   "label": "Stub",
+   "vendor": "carrier",
+   "what": "Deutsche Telekom's setup stub/app-assistant component.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "Nothing outside Deutsche Telekom networks.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.android.adservices.api",
+   "label": "Android AdServices (AOSP)",
+   "vendor": "google",
+   "what": "AOSP-named AdServices component. Privacy Sandbox beta components are disabled by default per Android's source documentation.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "No user-facing feature is lost. May return via a Google Play system update.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.android.apps.tag",
+   "label": "NFC Tag reader (AOSP Tags)",
+   "vendor": "google",
+   "what": "AOSP variant of the NFC tag-handling app. Holds contacts and phone permissions by default.",
+   "risk": "advanced",
+   "advice": "uninstall",
+   "loses": "NFC tag reading stops; NFC payments and pairing are unaffected.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.android.bips",
+   "label": "Default Print Service",
+   "vendor": "google",
+   "what": "Android's built-in print service (Built-In Print Service), which prints to most Wi-Fi and network printers without a manufacturer app.",
+   "risk": "expert",
+   "advice": "disable",
+   "loses": "Printing to network printers stops unless you install your printer maker's print plug-in. UAD-NG reports something worse on several devices (Sony Xperia X, Fairphone 4, Lenovo Yoga Tab): disabling this can crash the Settings app and cause general device slowness. Disable rather than uninstall, and re-enable if Settings starts crashing.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.android.carrierconfig",
+   "label": "Carrier Configuration",
+   "vendor": "google",
+   "what": "MUST KEEP. Holds the network settings for your mobile operator -- roaming, voicemail numbers, SMS and MMS settings, VoLTE and IMS settings.",
+   "risk": "unsafe",
+   "advice": "never",
+   "loses": "Mobile data, MMS picture messages, voicemail and VoLTE can all break or behave incorrectly. Never offer this for removal.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.android.carrierdefaultapp",
+   "label": "Carrier Default App",
+   "vendor": "google",
+   "what": "Lets your operator show 'your balance has run out' style pages and apply restricted-data rules -- mostly relevant on prepaid plans.",
+   "risk": "advanced",
+   "advice": "disable",
+   "loses": "Prepaid balance and top-up redirect pages may stop appearing. On a Bangladeshi prepaid SIM this can matter, so disable rather than uninstall.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.android.cellbroadcastreceiver",
+   "label": "Wireless Emergency Alerts",
+   "vendor": "google",
+   "what": "MUST KEEP. Receives government emergency alerts broadcast to every phone in an area -- cyclone and flood warnings in Bangladesh, for example.",
+   "risk": "unsafe",
+   "advice": "never",
+   "loses": "You would stop receiving official emergency and disaster alerts. This is a safety feature. Never offer it for removal.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.android.cellbroadcastservice",
+   "label": "Cell Broadcast Service",
+   "vendor": "google",
+   "what": "MUST KEEP. The background half of the emergency-alert system above.",
+   "risk": "unsafe",
+   "advice": "never",
+   "loses": "Emergency alerts stop working. Never offer this for removal.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.android.chrome",
+   "label": "Google Chrome",
+   "vendor": "google",
+   "what": "Google's web browser. On Android 10 and newer, Chrome, Android System WebView and Trichrome Library ship as a bundle that shares code. Pre-loaded on the Edge 50 Fusion.",
+   "risk": "advanced",
+   "advice": "uninstall",
+   "loses": "If Chrome is your only browser you will have no way to open web links -- install and set a replacement first. Passkey creation and storage can break, because on many devices Chrome provides that (Play services covers it on some). Other apps that use Chrome Custom Tabs (in-app login pages) fall back to another browser or fail if none is set. IMPORTANT: removing Chrome does NOT remove WebView, but because they are bundled, updates to WebView/Trichrome may stop arriving properly -- leave WebView and Trichrome Library alone.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.android.documentsui",
+   "label": "Files (Storage Access Framework picker)",
+   "vendor": "google",
+   "what": "The system file picker behind 'attach a file', 'choose a folder' and 'save as' in every app -- the Storage Access Framework UI. Occasionally runs in the background. Rated 'Unsafe' by UAD-NG.",
+   "risk": "unsafe",
+   "advice": "never",
+   "loses": "WARNING: the file picker disappears, so attaching a document to an email or chat, choosing a download folder, importing or exporting data, and every 'save as' dialog stops working across all apps. The Storage Access Framework breaks entirely. Never remove this.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.android.ext.adservices.api",
+   "label": "Android AdServices extension",
+   "vendor": "google",
+   "what": "A further AdServices component, introduced in Android 14.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "No user-facing feature is lost. May return via a Google Play system update.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.android.imsserviceentitlement",
+   "label": "IMS Service Entitlement",
+   "vendor": "google",
+   "what": "Checks with your operator whether Wi-Fi calling and VoLTE are allowed on your account.",
+   "risk": "expert",
+   "advice": "never",
+   "loses": "Wi-Fi calling can stop working. Leave it in place.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.android.mms.service",
+   "label": "MMS Service",
+   "vendor": "google",
+   "what": "Sends and receives MMS (picture and group text) messages.",
+   "risk": "expert",
+   "advice": "never",
+   "loses": "Picture messaging stops working. It does not cause a boot loop, but there is no benefit in removing it.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.android.modulemetadata",
+   "label": "Module metadata (AOSP)",
+   "vendor": "google",
+   "what": "The AOSP-named module metadata package, read by the system server. Rated 'Unsafe' by UAD-NG, which says it breaks some core functionality if disabled.",
+   "risk": "unsafe",
+   "advice": "never",
+   "loses": "Breaks Google Play system updates and some core system functionality. Never remove this.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.android.nfc",
+   "label": "NFC Service",
+   "vendor": "google",
+   "what": "The system service that drives the NFC radio. Runs as part of the system. Rated 'Expert' by UAD-NG, which notes it will probably keep running even if disabled, making removal pointless.",
+   "risk": "unsafe",
+   "advice": "never",
+   "loses": "WARNING -- PAYMENTS: all NFC stops -- contactless payments with Google Wallet, transit cards, NFC tags, and tap-to-pair with speakers and headphones. The NFC toggle disappears from Settings and Quick Settings. This is a core system service, not an app. Never remove this.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.android.ons",
+   "label": "Opportunistic Network Service",
+   "vendor": "google",
+   "what": "Ranks and selects available mobile networks. Not user-facing.",
+   "risk": "expert",
+   "advice": "disable",
+   "loses": "Possible network selection problems on multi-SIM or multi-network setups. Little to gain from removing it.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.android.packageinstaller",
+   "label": "Package Installer (AOSP)",
+   "vendor": "google",
+   "what": "The AOSP installer that handles installation, upgrade and removal of applications. Rated 'Unsafe' by UAD-NG.",
+   "risk": "unsafe",
+   "advice": "never",
+   "loses": "Same as the Google package installer: app installation, updates and uninstallation break. Never remove this.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.android.phone",
+   "label": "Phone / Telephony Service",
+   "vendor": "google",
+   "what": "MUST KEEP. The core telephony service behind calls and SIM handling -- not the dialler you tap on.",
+   "risk": "unsafe",
+   "advice": "never",
+   "loses": "Calling can stop working entirely. Never offer this for removal.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.android.printspooler",
+   "label": "Print Spooler",
+   "vendor": "google",
+   "what": "The Android system component that manages print jobs and shows the print dialog. Runs at boot.",
+   "risk": "expert",
+   "advice": "disable",
+   "loses": "All printing from the phone stops, from every app. UAD-NG warns that disabling it also breaks the Connection preferences submenu in Settings on most devices. Nothing else critical depends on it, but the benefit of removing it is close to zero.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.android.providers.media.module",
+   "label": "Media Storage / photo picker module (AOSP)",
+   "vendor": "google",
+   "what": "The AOSP-named variant of the media provider and photo-picker module. UAD-NG: 'Not recommended to remove this as it can break apps that use the photo picker.'",
+   "risk": "unsafe",
+   "advice": "never",
+   "loses": "Apps that use the Android photo picker to let you choose images cannot open it, and media indexing breaks. Never remove this.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.android.providers.telephony",
+   "label": "Telephony Provider",
+   "vendor": "google",
+   "what": "MUST KEEP. The database behind your text messages and network settings (APNs).",
+   "risk": "unsafe",
+   "advice": "never",
+   "loses": "Text messages and mobile data configuration are lost or broken. Never offer this for removal.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.android.simappdialog",
+   "label": "SIM App Dialog",
+   "vendor": "google",
+   "what": "The pop-up that offers to install your operator's app when you insert a new SIM.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "You stop being prompted to install operator apps. Nothing else changes.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.android.stk",
+   "label": "SIM Toolkit",
+   "vendor": "google",
+   "what": "Shows the operator menu stored on your SIM card -- the '*123#'-style balance, top-up and bundle menus that Bangladeshi and Indian operators use heavily.",
+   "risk": "advanced",
+   "advice": "disable",
+   "loses": "The SIM operator menu disappears. If you use SIM-menu services for balance checks or bundles, keep it. Disable rather than uninstall so it can be restored.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.android.systemui.plugin.globalactions.wallet",
+   "label": "Quick Access Wallet",
+   "vendor": "google",
+   "what": "The wallet/payment-card shortcut that appears in the power menu and on the lock screen. APK is named QuickAccessWallet.",
+   "risk": "advanced",
+   "advice": "uninstall",
+   "loses": "The wallet shortcut disappears from the power menu and lock screen, so you have to open Google Wallet manually to pay. Actual payment capability is unaffected. On some skins removing SystemUI plug-ins can cause odd power-menu behaviour.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.android.vending",
+   "label": "Google Play Store",
+   "vendor": "google",
+   "what": "The Google Play Store: app installation, app and system-component updates, purchases, subscriptions, Google Play system (Mainline) updates and Play Integrity. Pre-loaded on the Edge 50 Fusion. UAD-NG rates it 'Expert'; we rate it never-remove because it is also your only way to undo mistakes.",
+   "risk": "unsafe",
+   "advice": "never",
+   "loses": "WARNING -- APP INSTALLATION: you can no longer install or update any app. That includes security updates to Chrome, Android System WebView, Google Play services and the Google Play system modules, so the phone becomes progressively less secure. Purchases, subscriptions and refunds stop; Play Integrity / device-attestation checks fail, so many banking, payment and streaming apps refuse to run; app licence checks fail. Critically for a debloating tool, it also destroys your restore path -- you cannot reinstall anything you removed. Never remove this.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.android.webview",
+   "label": "Android System WebView (AOSP)",
+   "vendor": "google",
+   "what": "The AOSP WebView package. On a Google-certified phone such as a Motorola, the Google-signed com.google.android.webview is normally the active provider instead.",
+   "risk": "unsafe",
+   "advice": "never",
+   "loses": "Same as the Google WebView: if this is the active WebView provider, every app that displays web content breaks. UAD-NG's advice for non-rooted devices is explicit -- do not uninstall.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.google.android.adservices.api",
+   "label": "Android AdServices (Privacy Sandbox)",
+   "vendor": "google",
+   "what": "Android's Privacy Sandbox / AdServices component -- Topics, attribution reporting and related ad-measurement APIs. Introduced in Android 13, delivered as a Google Play system module.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "Privacy Sandbox ad-topic inference and ad-attribution reporting stop, which is the point. No user-facing feature is lost. Because it arrives as a Mainline module, a future Google Play system update may quietly reinstall or re-enable it -- your debloating app should re-check it periodically rather than reporting it as permanently removed.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.google.android.apps.adm",
+   "label": "Find Hub (formerly Find My Device)",
+   "vendor": "google",
+   "what": "Google's device- and tracker-finding app. Renamed from Find My Device to Find Hub in May 2025; the package id com.google.android.apps.adm did not change (it dates back to 'Android Device Manager' in 2013).",
+   "risk": "advanced",
+   "advice": "uninstall",
+   "loses": "You lose the app for locating this phone, other devices and Bluetooth trackers, and for sharing locations with people. Remote find, lock and erase of this phone from google.com/android/find still works, because that capability lives in Google Play services rather than in this app. Important knock-on: if Find My Device / Find Hub is enabled as a device administrator, you must turn that off in Settings before Play services can be disabled at all -- so removing this app can change what else your debloating tool is able to touch.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.google.android.apps.bard",
+   "label": "Google Gemini",
+   "vendor": "google",
+   "what": "The Google Gemini AI assistant app. The package id is still the old 'bard' name from before the February 2024 rebrand -- confirmed by UAD-NG's own entry and by the Play Store listing. Gemini is the replacement for Google Assistant on Android during 2026.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "You lose the Gemini app and Gemini as the phone's assistant (power-button hold / corner swipe). Gemini features that live inside other apps are unaffected. Nothing system-level depends on it.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.google.android.apps.books",
+   "label": "Google Play Books",
+   "vendor": "google",
+   "what": "Google's e-book and audiobook reader.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "Purchased books and audiobooks are unreadable on this phone until reinstalled; downloaded offline copies are deleted. Purchases stay in your account.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.google.android.apps.chromecast.app",
+   "label": "Google Home",
+   "vendor": "google",
+   "what": "Google Home -- sets up and controls Chromecast, Nest and other smart-home devices. Listed as 'Home' on Motorola's pre-loaded apps page for the Edge 50 Fusion.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "You cannot set up or control Google/Nest smart-home devices or Chromecasts from this phone. Casting from inside other apps (YouTube, Netflix) uses Play services and keeps working.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.google.android.apps.cloudprint",
+   "label": "Cloud Print (discontinued)",
+   "vendor": "google",
+   "what": "Google Cloud Print. The service was shut down by Google at the end of 2020, so the app does nothing.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "None -- the service no longer exists.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.google.android.apps.docs",
+   "label": "Google Drive",
+   "vendor": "google",
+   "what": "Google Drive cloud storage client. Pre-loaded on the Edge 50 Fusion.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "No Drive access or Drive file backup from the phone; the 'Save to Drive' option disappears from share menus and from the print dialog. Files in your Drive are untouched.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.google.android.apps.docs.editors.docs",
+   "label": "Google Docs",
+   "vendor": "google",
+   "what": "Google Docs word-processor app.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "Documents open in the browser instead of the app; offline editing is lost. Nothing else affected.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.google.android.apps.docs.editors.sheets",
+   "label": "Google Sheets",
+   "vendor": "google",
+   "what": "Google Sheets spreadsheet app.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "Spreadsheets open in the browser instead; offline editing is lost.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.google.android.apps.docs.editors.slides",
+   "label": "Google Slides",
+   "vendor": "google",
+   "what": "Google Slides presentation app.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "Presentations open in the browser instead; offline editing is lost.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.google.android.apps.dynamite",
+   "label": "Google Chat",
+   "vendor": "google",
+   "what": "Google Chat (the package id is the old 'Dynamite' codename from Hangouts Chat).",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "You lose Google Chat, which matters only if your workplace uses Google Workspace chat. Nothing else is affected.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.google.android.apps.googleassistant",
+   "label": "Google Assistant",
+   "vendor": "google",
+   "what": "The standalone Google Assistant app. Google has been replacing Assistant with Gemini on Android through 2025-2026, so on an up-to-date phone this may already be gone or dormant.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "Voice commands via Assistant stop, along with routines and the squeeze/long-press assistant gesture if it is mapped to Assistant. If Gemini is installed the phone will normally fall back to it. No system function depends on this app.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.google.android.apps.healthdata",
+   "label": "Health Connect",
+   "vendor": "google",
+   "what": "Health Connect -- the shared store that lets fitness and health apps exchange steps, sleep, heart-rate and workout data. On Android 14 and later Health Connect is built into the system, so a separate app may not be present. Note a genuine conflict in the sources: UAD-NG's entry for this exact id calls it 'useless frameworks and not needed for Health Connect' and rates it 'Recommended', which contradicts Google's own identification of this id as Health Connect. Treat with caution.",
+   "risk": "advanced",
+   "advice": "uninstall",
+   "loses": "If this really is the Health Connect data store on your build, removing it means fitness and health apps -- Fitbit (pre-loaded on the Edge 50 Fusion), Google Fit, Samsung Health, Strava -- can no longer share data with each other, and stored health history in Health Connect is lost. On Android 14+ builds where Health Connect is part of the system, removing this package may do nothing. Because the sources disagree, this is the one entry in this catalogue where a debloating app should say plainly that it is unsure.",
+   "confidence": "low"
+  },
+  {
+   "pkg": "com.google.android.apps.magazines",
+   "label": "Google News",
+   "vendor": "google",
+   "what": "Google News (the package id is the old 'Play Newsstand/Magazines' name).",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "You lose the Google News app. The Discover feed in the Google app is separate and is unaffected.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.google.android.apps.maps",
+   "label": "Google Maps",
+   "vendor": "google",
+   "what": "Google Maps navigation app. Pre-loaded on the Edge 50 Fusion.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "Map and navigation links from other apps (ride-hailing, food delivery, calendar locations) stop opening unless another maps app is installed. Android Auto loses its default navigation. Maps embedded inside other apps uses the Play services Maps SDK and keeps working. Find Hub's map view may degrade.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.google.android.apps.meetings",
+   "label": "Google Meet (original, discontinued)",
+   "vendor": "google",
+   "what": "The original standalone Google Meet app, discontinued after the merge into com.google.android.apps.tachyon.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "None in practice -- the app is dead. Only remove the one you are not using.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.google.android.apps.messaging",
+   "label": "Google Messages",
+   "vendor": "google",
+   "what": "Google's SMS, MMS and RCS messaging app. Listed as 'Messages' on Motorola's pre-loaded apps page for the Edge 50 Fusion. UAD-NG flags it as possibly a global dependency for SMS, MMS, RCS and one-time-passcode delivery.",
+   "risk": "advanced",
+   "advice": "uninstall",
+   "loses": "WARNING -- MESSAGING AND OTP: if this is your default SMS app and you remove it, text messages stop arriving, which means bank and login one-time passcodes never reach you and you can be locked out of accounts. RCS chats (typing indicators, read receipts, high-quality media, end-to-end encryption) stop and conversations fall back to SMS. UAD-NG warns that on some devices, once this is removed, reinstalling it does not fully restore RCS registration and a factory reset may be needed. Install and set another SMS app as default, send yourself a test message, and only then remove this.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.google.android.apps.nbu.files",
+   "label": "Files by Google",
+   "vendor": "google",
+   "what": "Google's file manager, junk cleaner and offline sharing app. Runs in the background. Listed as 'Files' on Motorola's pre-loaded apps page -- on recent Motorola devices this is usually the Google app.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "You lose the file-browsing and nearby-sharing UI. The system file picker used by other apps is a different package (DocumentsUI) and is unaffected.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.google.android.apps.nbu.paisa.user",
+   "label": "Google Pay (India / UPI)",
+   "vendor": "google",
+   "what": "The India-specific Google Pay app for UPI payments and bank transfers. A different app from Google Wallet. UAD-NG notes it requests a very large permission set.",
+   "risk": "advanced",
+   "advice": "uninstall",
+   "loses": "WARNING -- PAYMENTS: UPI payments, bank transfers and any UPI ID registered through this app stop working. Re-registering after reinstall needs SMS verification from the SIM that owns the account, so make sure your SMS app still works before removing this.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.google.android.apps.photos",
+   "label": "Google Photos",
+   "vendor": "google",
+   "what": "Google's gallery and cloud photo backup app. Pre-loaded on the Edge 50 Fusion per Motorola's support page.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "Automatic photo and video backup to your Google account stops immediately -- check your backup is complete first. If Photos is your only gallery you will have no way to view images until you install a replacement, and anything sitting in the Photos Bin (30-day trash) is effectively lost. Photos already uploaded stay in your Google account.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.google.android.apps.pixelmigrate",
+   "label": "Data Transfer Tool (Pixel)",
+   "vendor": "google",
+   "what": "The Pixel-specific data-transfer/restore helper used during first-boot setup.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "The setup-time 'copy from old phone' flow may be unavailable after a factory reset. Not normally present on a Motorola.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.google.android.apps.podcasts",
+   "label": "Google Podcasts (discontinued)",
+   "vendor": "google",
+   "what": "Google Podcasts. Google shut this service down during 2024 and migrated listeners to YouTube Music; the export tool closed in July 2024. It should not be present on a current phone.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "None -- the service no longer exists. Podcasts now live in YouTube Music.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.google.android.apps.recorder",
+   "label": "Google Recorder",
+   "vendor": "google",
+   "what": "Google's voice recorder with on-device transcription and search. Largely a Pixel app; Motorola ships its own recorder on most models.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "You lose the app and its transcripts. Any recordings stored on the device remain as files.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.google.android.apps.restore",
+   "label": "Google Restore / Data Transfer Tool",
+   "vendor": "google",
+   "what": "The 'copy apps and data from your old phone' wizard used during initial setup and after a factory reset. Runs at boot.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "You lose the setup-time restore wizard. UAD-NG notes you only need it after a factory reset, at which point it is automatically re-enabled for you. Low risk either way.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.google.android.apps.safetyhub",
+   "label": "Personal Safety (Safety Hub)",
+   "vendor": "google",
+   "what": "Google's personal-safety app: car-crash detection, Emergency SOS sharing, safety check, emergency contacts and medical information. Primarily a Pixel app.",
+   "risk": "advanced",
+   "advice": "uninstall",
+   "loses": "Car-crash detection, safety check, emergency location sharing, stored medical information and emergency contacts are all lost. Basic Emergency SOS -- pressing the power button five times to call emergency services -- is part of the system and still works. Do not remove it if anyone relies on crash detection or on-device medical info.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.google.android.apps.setupwizard.searchselector",
+   "label": "Search engine choice screen",
+   "vendor": "google",
+   "what": "The screen that asks you to pick a default search engine on a new or factory-reset phone, introduced to satisfy European competition rules. Runs at boot but not beyond.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "None after initial setup. You may not see the search-engine choice screen after a future factory reset.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.google.android.apps.subscriptions.red",
+   "label": "Google One",
+   "vendor": "google",
+   "what": "Google One -- manages your Google cloud storage subscription, and on some builds the Google One VPN and device backup screens. Occasionally runs in the background. Pre-loaded on the Edge 50 Fusion.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "You lose the storage-management and backup-status UI and the Google One VPN if you used it. Your subscription and the backups themselves are unaffected -- Android's backup engine is a separate package.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.google.android.apps.tachyon",
+   "label": "Google Meet (formerly Google Duo)",
+   "vendor": "google",
+   "what": "Google's video-calling app. The package id is the original 'Duo' codename; Duo and Meet were merged into this app. Listed as 'Meet' on Motorola's pre-loaded apps page for the Edge 50 Fusion.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "Video calling through Meet stops and Meet call integration in the Phone and Contacts apps disappears. Nothing else is affected.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.google.android.apps.translate",
+   "label": "Google Translate",
+   "vendor": "google",
+   "what": "Google Translate, including camera and conversation translation.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "Translate is gone as an app, and the 'Translate' option disappears from text-selection menus and share sheets in some apps. Live Translate on the system level is powered by Android System Intelligence, not this app.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.google.android.apps.turbo",
+   "label": "Device Health Services",
+   "vendor": "google",
+   "what": "Google's battery-intelligence service. It learns which apps you use and when, and feeds Adaptive Battery, adaptive charging and the battery-life predictions in Settings. Rated 'Expert' by UAD-NG with the blunt note 'Breaks battery settings'.",
+   "risk": "expert",
+   "advice": "disable",
+   "loses": "WARNING -- BATTERY: Adaptive Battery stops working, so Android no longer restricts rarely used apps in the background based on your habits -- battery life usually gets worse, not better. Adaptive charging stops. The battery-usage graph and the 'battery will last until...' estimate in Settings become inaccurate, and on some devices the Battery screen misbehaves or shows nothing. Prefer disable over uninstall so you can turn it straight back on if the battery screen breaks.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.google.android.apps.walletnfcrel",
+   "label": "Google Wallet",
+   "vendor": "google",
+   "what": "Google Wallet -- contactless 'tap to pay' with NFC, plus transit passes, boarding passes, event tickets, loyalty and gift cards and, in some countries, digital ID. Listed as 'Wallet' on Motorola's pre-loaded apps page for the Edge 50 Fusion.",
+   "risk": "advanced",
+   "advice": "uninstall",
+   "loses": "WARNING -- PAYMENTS: contactless tap-to-pay stops working completely. Saved bank cards, transit cards, boarding passes, tickets and any digital ID become unavailable on the phone, and cards must be added again from scratch after reinstalling (some banks limit how often you can re-tokenise a card). The NFC radio itself keeps working for tags and pairing. Do not remove this if you pay with your phone.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.google.android.apps.wallpaper",
+   "label": "Wallpaper & style",
+   "vendor": "google",
+   "what": "Google's wallpaper and theming picker. Motorola ships its own 'Moto' personalisation app instead on the Edge 50 Fusion.",
+   "risk": "advanced",
+   "advice": "uninstall",
+   "loses": "The wallpaper section disappears from Settings, though your current wallpaper stays in place. On a Motorola this is normally not the active wallpaper picker, so removing it may do nothing at all -- or may leave a dead Settings entry.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.google.android.apps.wearables.maestro.companion",
+   "label": "Pixel Buds",
+   "vendor": "google",
+   "what": "The companion app for Google Pixel Buds earbuds.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "You cannot configure Pixel Buds from this phone. Irrelevant unless you own a pair. Not normally present on a Motorola.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.google.android.apps.wellbeing",
+   "label": "Digital Wellbeing and parental controls",
+   "vendor": "google",
+   "what": "Screen-time dashboard, app timers, Focus mode, Bedtime mode, Heads Up and the parental-controls entry point.",
+   "risk": "advanced",
+   "advice": "uninstall",
+   "loses": "Screen-time statistics, app timers, Focus and Bedtime modes and any parental screen-time limits stop working -- do not remove this on a child's phone. UAD-NG warns it has become a hard dependency of the Settings app on Android 12 and later on some builds: after removal an empty or crashing Digital Wellbeing entry can remain in Settings until you reboot.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.google.android.apps.work.clouddpc",
+   "label": "Android Device Policy",
+   "vendor": "google",
+   "what": "Google's enterprise device-policy controller, used for work profiles and fully managed devices.",
+   "risk": "advanced",
+   "advice": "uninstall",
+   "loses": "Work-profile and corporate management stop functioning; on a managed phone this can lock you out of work apps and email. Harmless on a personal phone that has never been enrolled.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.google.android.apps.work.oobconfig",
+   "label": "Device Setup (enterprise enrolment)",
+   "vendor": "google",
+   "what": "Sets the phone up to be managed by a company's mobility-management system, and may perform the ongoing management on a work device.",
+   "risk": "advanced",
+   "advice": "uninstall",
+   "loses": "You cannot enrol the phone in a company's device management or create a work profile. If the phone is already managed by an employer, removing this can break that management or trip a compliance alert -- do not remove it on a work phone. Harmless on a purely personal phone.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.google.android.apps.youtube.kids",
+   "label": "YouTube Kids",
+   "vendor": "google",
+   "what": "The child-focused YouTube app.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "Children lose the restricted YouTube experience and may be pushed to the main YouTube app instead -- consider that before removing it from a family phone. Nothing else is affected.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.google.android.apps.youtube.music",
+   "label": "YouTube Music",
+   "vendor": "google",
+   "what": "Google's music and podcast streaming app -- it absorbed Google Podcasts in 2024. Listed as 'YT Music' on Motorola's pre-loaded apps page for the Edge 50 Fusion.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "You lose the app and, on some builds, the default music player that media buttons and Bluetooth car controls target -- pair another player first. Any YouTube Premium/Music subscription is unaffected and the app can be reinstalled.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.google.android.as",
+   "label": "Android System Intelligence (formerly Device Personalization Services)",
+   "vendor": "google",
+   "what": "Google's on-device machine-learning service. It runs models locally, inside Android's Private Compute Core, with no network access to your personal data. Powers a wide spread of small conveniences. UAD-NG rates it 'Recommended' for removal; we rate it higher because of how much stops at once.",
+   "risk": "expert",
+   "advice": "disable",
+   "loses": "A long list of features stops together: Live Caption (automatic captions on any audio or video, including calls), Live Translate, Now Playing (identifying music around you), notification smart replies and smart actions, smart text selection and auto-linking of addresses and phone numbers, improved copy and paste, app predictions in the launcher, screen attention (keeping the screen awake while you look at it), smart auto-rotate, and on some builds the quality of Gboard's on-device suggestions. Nothing critical breaks, but Live Caption in particular is an accessibility feature for deaf and hard-of-hearing users -- do not remove it on their behalf. Disable rather than uninstall so it can be restored.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.google.android.as.oss",
+   "label": "Private Compute Services",
+   "vendor": "google",
+   "what": "The privacy-preserving bridge between Android System Intelligence's sandbox (the Private Compute Core) and Google's servers. It ships model and data updates in, using federated learning and private information retrieval, and it is a dependency of Android System Intelligence.",
+   "risk": "expert",
+   "advice": "disable",
+   "loses": "Because it is what keeps Android System Intelligence's models current, Live Caption, Now Playing and Smart Reply degrade over time or stop being updated, and on some builds break immediately -- System Intelligence depends on it. Removing it does not improve your privacy: this component exists specifically to keep on-device data on-device and it has no permission to send your personal data to Google. If you are removing com.google.android.as as well, remove or restore the two together.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.google.android.backuptransport",
+   "label": "Google Backup Transport",
+   "vendor": "google",
+   "what": "The component that actually uploads Android's automatic backups -- app data, Wi-Fi passwords, call history, SMS and settings -- to your Google account.",
+   "risk": "advanced",
+   "advice": "uninstall",
+   "loses": "Automatic Google backup stops silently. You will only find out the next time you set up a new phone or recover from a factory reset and discover there is nothing to restore. Keep this unless you deliberately back up another way, and check Settings > Google > Backup afterwards if you do remove it.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.google.android.calendar",
+   "label": "Google Calendar",
+   "vendor": "google",
+   "what": "Google Calendar app. Pre-loaded on the Edge 50 Fusion.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "You lose the calendar UI, its widgets and event notifications. Your events stay in your Google account and in the phone's calendar database, and any other calendar app can still read them provided you keep the Calendar Sync package.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.google.android.configupdater",
+   "label": "Configuration Updater (Config Update)",
+   "vendor": "google",
+   "what": "Receives silent, out-of-band updates to critical system data: TLS certificate pins, the Certificate Transparency trusted-log list, the system intent firewall, the premium-SMS short-code list, carrier provisioning URLs, the carrier ID database, text-classification models and -- importantly -- the emergency number database. Rated 'Expert' by UAD-NG.",
+   "risk": "expert",
+   "advice": "never",
+   "loses": "WARNING -- SECURITY AND EMERGENCY CALLS: certificate pinning and Certificate Transparency data go stale, which weakens protection against fraudulent HTTPS certificates. The premium-SMS short-code list stops updating, so protection against expensive-SMS scams degrades. The emergency-number database stops updating, which can matter when travelling. The intent firewall and smart-text models go stale. There is no user-visible benefit to removing this and it does not run in the background in any meaningful way. Leave it alone.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.google.android.contacts",
+   "label": "Google Contacts",
+   "vendor": "google",
+   "what": "Google's contacts app. Occasionally runs in the background. Listed as 'Contacts' on Motorola's pre-loaded apps page -- on recent Motorola phones this is the Google app rather than a Moto one.",
+   "risk": "advanced",
+   "advice": "uninstall",
+   "loses": "Your contacts are stored in the system contacts database and your Google account, not in this app, so no data is lost -- but if this is the only contacts app you lose the ability to view and edit contacts (the Phone app can usually still list them). Contact photos and merge suggestions may be lost from the UI. Do not confuse this with Google Contacts Sync, which is the package that actually syncs.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.google.android.deskclock",
+   "label": "Google Clock",
+   "vendor": "google",
+   "what": "Google's clock app -- alarms, timers, stopwatch, bedtime schedule and the clock widget. Listed as 'Clock' on Motorola's pre-loaded apps page.",
+   "risk": "advanced",
+   "advice": "uninstall",
+   "loses": "All existing alarms are lost, along with timers and the bedtime schedule. UAD-NG warns that on some phones removing this causes alarms and notifications to only vibrate with no sound at all -- across every installed app -- and removes the 'Alarm' section from Settings > Sound & vibration. Install a replacement clock app and test an alarm before removing.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.google.android.dialer",
+   "label": "Google Phone",
+   "vendor": "google",
+   "what": "Google's dialer -- calls, call log, visual voicemail, caller ID and spam protection, call screening and call recording. Listed as 'Phone' on Motorola's pre-loaded apps page; Motorola ships the Google dialer on recent Edge devices.",
+   "risk": "advanced",
+   "advice": "uninstall",
+   "loses": "WARNING -- CALLS: if this is the only dialer, you lose the ability to place and answer calls from a UI, including dialling emergency services normally. Visual voicemail, caller ID/spam warnings, call screening and call recording stop. Confirm another dialer exists and is set as default, and test an outgoing call, before removing.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.google.android.documentsui",
+   "label": "Files (Storage Access Framework picker, Google build)",
+   "vendor": "google",
+   "what": "Google-signed variant of the system file picker. Rated 'Unsafe' by UAD-NG.",
+   "risk": "unsafe",
+   "advice": "never",
+   "loses": "Identical to com.android.documentsui -- the system file picker and Storage Access Framework break. Never remove this.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.google.android.euicc",
+   "label": "eUICC / eSIM services",
+   "vendor": "google",
+   "what": "Handles eSIM profiles -- the embedded SIM that stores carrier profiles and cryptographic keys in software instead of a plastic card. Rated 'Expert' by UAD-NG.",
+   "risk": "expert",
+   "advice": "never",
+   "loses": "WARNING -- MOBILE SERVICE: you cannot download, switch or delete eSIM profiles, and an eSIM already in use can stop working, leaving the phone with no mobile service and no way to restore it without physical SIM access. Never remove this if you use or might use an eSIM. Global Motorola Edge 50 Fusion units are commonly dual physical SIM, so this package may be absent or inert -- but confirm on the actual device rather than assuming.",
+   "confidence": "low"
+  },
+  {
+   "pkg": "com.google.android.feedback",
+   "label": "Market Feedback Agent (Google Feedback)",
+   "vendor": "google",
+   "what": "Sends crash reports and 'send feedback' submissions to Google and to app developers, and powers in-app review prompts. Has permission to read system logs and app usage.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "'Send feedback' options and in-app rating prompts stop working, and a few system apps that call it may show an error when you try to submit feedback. Crash pop-ups still appear. Nothing functional is lost.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.google.android.gm",
+   "label": "Gmail",
+   "vendor": "google",
+   "what": "Google's email client, which also handles other IMAP and Exchange accounts. Pre-loaded on the Edge 50 Fusion.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "No email app unless you install one; email notifications stop. Your Google account stays signed in on the phone -- removing Gmail does not remove the account or affect other Google apps.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.google.android.gm.exchange",
+   "label": "Exchange Services (Gmail)",
+   "vendor": "google",
+   "what": "Microsoft Exchange ActiveSync support used by Gmail. Now largely folded into the Gmail app itself.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "Corporate Exchange mail, contacts and calendar accounts may stop syncing on older builds. Harmless if you only use consumer email.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.google.android.gms",
+   "label": "Google Play services",
+   "vendor": "google",
+   "what": "The core Google layer that sits on top of Android and provides the proprietary APIs almost every app uses: push messaging, sign-in, location, maps, payments, attestation, backup and more. Always running in the background. UAD-NG rates it 'Expert' and notes that removing it can boot-loop some devices.",
+   "risk": "unsafe",
+   "advice": "never",
+   "loses": "WARNING -- THIS BREAKS MOST OF THE PHONE. Push notifications (Firebase Cloud Messaging) stop for almost every third-party app -- WhatsApp, banking, email, delivery, ride-hailing -- because FCM is delivered through Play services. 'Sign in with Google' fails everywhere. Location accuracy collapses (fused location, Wi-Fi and Bluetooth positioning). Maps inside other apps goes blank. Google Wallet and NFC payments stop. Find Hub, Google backup, Play Integrity/SafetyNet attestation (banking apps refuse to launch), Google Play system updates, Nearby Share and Cast all fail. Apps either refuse to start or nag constantly. Some devices boot-loop. It is also usually protected as a device administrator by Find My Device / Find Hub, so it will refuse to be disabled until that is turned off in Settings -- that refusal is a safety net, not a bug to work around. Never remove this.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.google.android.gms.location.history",
+   "label": "Google Location History",
+   "vendor": "google",
+   "what": "A tiny package associated with Location History / Timeline. UAD-NG inspected it and reports it contains no code at all -- only a Google logo and a name.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "No observable effect. Importantly, removing it does NOT turn Location History or Timeline off -- those are controlled in your Google account settings and implemented inside Google Play services. If your goal is privacy, turn Location History off in your account instead.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.google.android.gms.policy_sidecar_aps",
+   "label": "Google Play services policy sidecar",
+   "vendor": "google",
+   "what": "An undocumented helper package for Google Play services. UAD-NG inspected it and found it has no permissions of its own and never runs by itself, but does touch network and phone data and connects to Google domains when called by something else.",
+   "risk": "advanced",
+   "advice": "uninstall",
+   "loses": "No observable effect reported. Because it is an undocumented Play services helper, restore it first if any Google service starts behaving oddly after a debloating session.",
+   "confidence": "low"
+  },
+  {
+   "pkg": "com.google.android.gms.supervision",
+   "label": "Family Link parental controls",
+   "vendor": "google",
+   "what": "The on-device component for Google Family Link parental controls, introduced in Android 13.",
+   "risk": "advanced",
+   "advice": "uninstall",
+   "loses": "On a supervised (child) account, parental controls stop -- screen-time limits, app approval, content restrictions and location reporting to the parent. Never remove this on a child's phone. Harmless on an adult's unsupervised phone.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.google.android.googlequicksearchbox",
+   "label": "Google app (Search, Discover, voice)",
+   "vendor": "google",
+   "what": "The main 'Google' app: web search, the Discover news feed to the left of the home screen, voice search, Google Lens inside Search, and Circle to Search. It also carries the Sound Search widget. Runs in the background constantly.",
+   "risk": "advanced",
+   "advice": "uninstall",
+   "loses": "You lose the Discover feed, the Google search bar/widget, 'Hey Google' voice search, Circle to Search and the in-Search Lens camera. Some launcher search bars go dead or show an error. On devices where Gemini or Assistant is launched through the Google app, the assistant gesture may stop responding. Nothing critical breaks and a browser shortcut replaces basic search.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.google.android.gsf",
+   "label": "Google Services Framework (GSF)",
+   "vendor": "google",
+   "what": "The older framework that underpins Play services: account authentication, cloud-messaging registration, device registration (your GSF/Android ID), and delivery of Play services updates.",
+   "risk": "unsafe",
+   "advice": "never",
+   "loses": "WARNING: authentication and cloud-messaging registration break, so notifications stop and your Google accounts can be silently dropped from the phone. Re-adding accounts often fails afterwards and a factory reset may be the only fix. Because the device registration ID lives here, removing it can also invalidate app licences and Play Store entitlements. UAD-NG gives the same advice as for Play services. Never remove this.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.google.android.ims",
+   "label": "Carrier Services",
+   "vendor": "google",
+   "what": "Google's carrier-integration component. It handles RCS provisioning and registration for Google Messages and carries carrier configuration for IMS services -- VoLTE, VoWiFi (Wi-Fi calling) and VoIP. Runs in the background.",
+   "risk": "advanced",
+   "advice": "disable",
+   "loses": "WARNING -- RCS AND CALLING: RCS chat in Google Messages stops and conversations drop back to plain SMS/MMS, losing read receipts, typing indicators, high-quality media and end-to-end encryption. Re-registering RCS afterwards is often unreliable. On some networks Wi-Fi calling and VoLTE provisioning break, and MMS sending can fail. Carrier configuration updates stop arriving. Use disable rather than uninstall so you can re-enable it the moment messaging or calling misbehaves.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.google.android.inputmethod.latin",
+   "label": "Gboard (Google Keyboard)",
+   "vendor": "google",
+   "what": "Google's keyboard, and on many phones the only keyboard installed.",
+   "risk": "advanced",
+   "advice": "uninstall",
+   "loses": "WARNING: if this is the only keyboard you will have no way to type anything -- including the password needed to fix the problem. Voice typing, glide typing, clipboard history and emoji search go with it. Install a replacement keyboard, switch to it, and actually type something with it before removing Gboard.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.google.android.instantapps.supervisor",
+   "label": "Google Play Instant",
+   "vendor": "google",
+   "what": "Runs small 'instant' versions of apps and games straight from a Play Store or web link, without installing them.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "'Try now' / instant-app links stop working and fall back to a normal install. Nothing else is affected.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.google.android.keep",
+   "label": "Google Keep",
+   "vendor": "google",
+   "what": "Google Keep notes and reminders.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "Notes are synced to your Google account and stay there, but you lose the app, its widgets and its quick-note tiles. Reminders created in Keep still fire from Google Calendar/Tasks.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.google.android.marvin.talkback",
+   "label": "Android Accessibility Suite (TalkBack)",
+   "vendor": "google",
+   "what": "Google's accessibility package: the TalkBack screen reader, Select to Speak, Switch Access and the accessibility shortcut.",
+   "risk": "advanced",
+   "advice": "uninstall",
+   "loses": "WARNING -- ACCESSIBILITY: TalkBack, Select to Speak and Switch Access are gone. A blind, partially sighted or motor-impaired user cannot operate the phone. Never remove this on a phone that anyone with an impairment uses, or on a shared/family phone. UAD-NG also records a Motorola-specific side effect: it causes com.motorola.dynamicvolume to stop showing individual apps and their volumes when you press the volume keys.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.google.android.modulemetadata",
+   "label": "Google Play system update metadata",
+   "vendor": "google",
+   "what": "Holds the list of which Google Play system (Mainline) modules are installed at which version. It has no user-facing function of its own. Rated 'Unsafe' by UAD-NG.",
+   "risk": "unsafe",
+   "advice": "never",
+   "loses": "WARNING: the system can no longer tell which Mainline modules it has, so Google Play system updates stop and the security-patch level shown in Settings breaks. UAD-NG warns it can break important modules and advises not to touch it; a closely related overlay package has caused boot-loops on tested devices. Never remove this.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.google.android.odad",
+   "label": "Google Play Protect Service",
+   "vendor": "google",
+   "what": "Play Protect's on-device app-scanning component, split out of Play services into its own package so Google can update the malware scanner faster. UAD-NG's entry describes it as near-empty, but the Play Store listing and Google's Play Protect documentation identify it as the Play Protect service.",
+   "risk": "advanced",
+   "advice": "disable",
+   "loses": "On-device scanning of installed and sideloaded apps for malware is weakened, and real-time scanning of newly installed apps may stop. The main Play Protect engine still lives inside Play services, so you are not left completely unprotected -- but you gain almost nothing by removing it and you lose security. Not recommended for a non-technical user.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.google.android.onetimeinitializer",
+   "label": "Google One Time Init",
+   "vendor": "google",
+   "what": "Runs once at first boot to complete Google app initialisation, then does nothing.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "No observable effect on a phone that has already been set up.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.google.android.overlay.gmsconfig",
+   "label": "Google Play services configuration overlay",
+   "vendor": "google",
+   "what": "A resource overlay that supplies device-specific configuration for WebView, and for Wi-Fi and Bluetooth scanning used to improve location accuracy. Overlays are device-specific by nature.",
+   "risk": "advanced",
+   "advice": "uninstall",
+   "loses": "UAD-NG reports everything works without it on the devices tested, but also records a real side effect on a Samsung device where removing it made another app force-close. Because overlay packages differ per manufacturer and per build, the honest position on a Motorola is: probably harmless, occasionally causes an unrelated app to crash, and worth restoring first if anything odd starts happening after a debloating session.",
+   "confidence": "low"
+  },
+  {
+   "pkg": "com.google.android.overlay.permissioncontroller",
+   "label": "Permission controller overlay",
+   "vendor": "google",
+   "what": "A resource overlay for the permission controller module.",
+   "risk": "expert",
+   "advice": "never",
+   "loses": "UAD-NG records that removing this breaks Google Play system updates (part of Project Mainline) and that the relevant Settings page then either crashes outright or demands that the Play Store be updated. Leave it alone -- it has no user-facing benefit to remove.",
+   "confidence": "low"
+  },
+  {
+   "pkg": "com.google.android.packageinstaller",
+   "label": "Google Package Installer",
+   "vendor": "google",
+   "what": "Handles installing, updating and uninstalling apps, and on Android 9 and later also parts of permission control. Replaces com.android.packageinstaller on newer phones. UAD-NG rates it 'Unsafe' and warns of boot-loops.",
+   "risk": "unsafe",
+   "advice": "never",
+   "loses": "WARNING -- APP INSTALLATION: you cannot install, update or uninstall any app, from the Play Store or from an APK file. The Permissions section disappears from every app's info screen. UAD-NG reports boot-loop risk since Android 9. This also removes the debloating tool's own ability to restore what it removed. Never remove this.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.google.android.partnersetup",
+   "label": "Google Partner Setup",
+   "vendor": "google",
+   "what": "Handles manufacturer/carrier pre-load configuration and search attribution (RLZ), and lets apps hand off to Google services -- for example adding a Google Calendar event from a to-do app. Occasionally runs in the background. Documentation from Google is essentially non-existent.",
+   "risk": "advanced",
+   "advice": "uninstall",
+   "loses": "UAD-NG reports no noticed consequences after weeks of use with it disabled. On some builds a small number of hand-offs between third-party apps and Google apps, and partner search attribution, stop working. Because its exact role is undocumented, treat any odd Google-app behaviour after removal as a reason to restore it.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.google.android.permissioncontroller",
+   "label": "Permission controller",
+   "vendor": "google",
+   "what": "The system component that shows permission prompts and owns the app-permissions screens. Delivered as a Google Play system (Mainline) module. UAD-NG rates it 'Unsafe'.",
+   "risk": "unsafe",
+   "advice": "never",
+   "loses": "WARNING: permission dialogs stop appearing, so apps can never be granted camera, microphone, location, contacts or notification access, and the Permissions screens vanish from Settings. Existing grants can be lost. Removal can boot-loop the device. Never remove this.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.google.android.photopicker",
+   "label": "Android Photo Picker",
+   "vendor": "google",
+   "what": "The modern system photo and video picker that lets an app show you your media library without being given access to all your files -- the privacy-preserving alternative to full storage permission.",
+   "risk": "expert",
+   "advice": "never",
+   "loses": "Apps such as WhatsApp, Instagram and email clients can no longer open the privacy-safe picker to attach a photo. They either fall back to demanding full access to all your photos and videos -- the opposite of what a privacy-minded user wants -- or the attach button simply fails. Removing this makes your privacy worse, not better.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.google.android.play.games",
+   "label": "Google Play Games",
+   "vendor": "google",
+   "what": "Google's games hub, achievements and cloud game-save front end.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "You lose the games hub, achievements list and friends. Cloud game saves and sign-in for most games are served by Play services, not this app, so they usually keep working -- but some titles will prompt you to reinstall Play Games.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.google.android.printservice.recommendation",
+   "label": "Print Service Recommendation",
+   "vendor": "google",
+   "what": "Suggests third-party printer apps from the Play Store when it detects a printer on your network.",
+   "risk": "advanced",
+   "advice": "uninstall",
+   "loses": "Android stops suggesting printer apps. Printing through the default print service keeps working.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.google.android.projection.gearhead",
+   "label": "Android Auto",
+   "vendor": "google",
+   "what": "Android Auto -- projects navigation, media and messaging onto a compatible car display, wired or wireless. UAD-NG notes there is no direct replacement.",
+   "risk": "advanced",
+   "advice": "uninstall",
+   "loses": "Your phone will no longer connect to any car head unit via Android Auto. Nothing on the phone itself changes -- the 'Android Auto for phone screens' driving mode was already retired -- but if you use a car, you lose in-car navigation, calls and media entirely and there is no alternative app.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.google.android.providers.media.module",
+   "label": "Media Storage (media provider)",
+   "vendor": "google",
+   "what": "The media provider -- it indexes photos, videos and audio and gives permitted apps access to them. Since Android 11 it is how apps reach your files without full storage permission. Delivered as a Google Play system module.",
+   "risk": "unsafe",
+   "advice": "never",
+   "loses": "WARNING: galleries, music players, video players and file pickers can no longer see your photos, videos or music. The Android photo picker breaks. The camera may fail to save. UAD-NG says it is technically possible to disable but explicitly not recommended, and it breaks file browsers and other forms of file access. Never remove this.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.google.android.settings.intelligence",
+   "label": "Settings Services (Settings search and suggestions)",
+   "vendor": "google",
+   "what": "Provides the search bar at the top of the Settings app and the suggestion cards on its main page.",
+   "risk": "advanced",
+   "advice": "uninstall",
+   "loses": "The search bar in Settings stops working, so you have to navigate menus by hand -- noticeably annoying on a heavily customised skin like Motorola's. Settings suggestion cards disappear. Settings itself keeps working.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.google.android.setupwizard",
+   "label": "Android Setup (Setup Wizard)",
+   "vendor": "google",
+   "what": "The first-boot and post-factory-reset setup flow. It does not appear to run afterwards, which makes it look like an easy removal -- it is not.",
+   "risk": "expert",
+   "advice": "never",
+   "loses": "WARNING -- SUBTLE, SEVERE: UAD-NG warns that removing this breaks mobile identity management, which apps such as banking apps use to authenticate the device -- so banking and government apps can start refusing to run, with no obvious cause. It also breaks syncing for any Google account you add after removing it: existing accounts keep working, so the damage only shows up weeks later. A factory reset needs this package to complete setup. UAD-NG rates it 'Advanced'; for a non-rooted phone with a general user we escalate this to leave-alone, because the failure mode is delayed, hard to diagnose and can require a factory reset.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.google.android.soundpicker",
+   "label": "Google Sounds (ringtone picker)",
+   "vendor": "google",
+   "what": "Supplies the built-in ringtone, notification and alarm sound picker and the bundled sounds. Largely a Pixel component.",
+   "risk": "advanced",
+   "advice": "uninstall",
+   "loses": "UAD-NG warns that without another media-selection service, your ringtone, notification and alarm sounds are forced to the default and cannot be changed. On a Motorola, Moto's own sound picker usually provides this, so the risk is lower -- but test changing a ringtone before you trust it.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.google.android.syncadapters.calendar",
+   "label": "Google Calendar Sync",
+   "vendor": "google",
+   "what": "The invisible component that syncs calendar events between the phone and your Google account. Not the Calendar app.",
+   "risk": "advanced",
+   "advice": "uninstall",
+   "loses": "Calendar events stop syncing with your Google account in every calendar app on the phone, so shared and work calendars go stale and new events made elsewhere never appear. Event reminders for anything not already downloaded stop firing.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.google.android.syncadapters.contacts",
+   "label": "Google Contacts Sync",
+   "vendor": "google",
+   "what": "The invisible component that syncs contacts between the phone's contacts database and your Google account. Not the Contacts app.",
+   "risk": "advanced",
+   "advice": "uninstall",
+   "loses": "Contacts stop syncing in both directions: new contacts saved on the phone never reach your Google account, and contacts you add or edit on the web or another device never arrive. Existing contacts already on the phone remain. 'Contacts' disappears from the account sync list in Settings, and any contacts app on the phone is affected, not just Google's. This is a common mix-up -- people remove this thinking it is the Contacts app.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.google.android.tag",
+   "label": "NFC Tag reader (Tags)",
+   "vendor": "google",
+   "what": "Handles the content of scanned NFC tags -- transport cards, NFC stickers, smart posters. Not the same thing as the NFC service.",
+   "risk": "advanced",
+   "advice": "uninstall",
+   "loses": "Scanning an NFC tag no longer opens or displays anything, so reading transport cards and NFC stickers stops. Contactless payments and NFC pairing with speakers and headphones still work, because those are handled by com.android.nfc and Google Wallet. Do not confuse this package with com.android.nfc.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.google.android.trichromelibrary",
+   "label": "Trichrome Library",
+   "vendor": "google",
+   "what": "A static shared library holding the code and resources shared by Google Chrome and Android System WebView on Android 10 and later -- the third piece of the Chrome/WebView/Trichrome bundle, per Chromium's own shared-libraries documentation. It has no icon and cannot be opened. Note: on the device the installed package name usually carries a version suffix, for example com.google.android.trichromelibrary_<versioncode>, so a debloating tool must match it by prefix rather than exact string. It does not appear in UAD-NG's list at all, so there is no community rating to fall back on.",
+   "risk": "unsafe",
+   "advice": "never",
+   "loses": "WARNING: removing it breaks Chrome and Android System WebView simultaneously, because both load their shared code from it -- so you lose the browser and every in-app web view at once, with the same consequences as removing WebView. Its version is tied to the installed Chrome/WebView versions, so it must never be removed independently. Never remove this, and a debloating app should hide it from the list rather than merely warn about it.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.google.android.tts",
+   "label": "Speech Recognition and Synthesis from Google (Speech Services)",
+   "vendor": "google",
+   "what": "The default text-to-speech engine on almost all Android devices, and on many builds also the on-device speech-recognition engine used for dictation.",
+   "risk": "advanced",
+   "advice": "uninstall",
+   "loses": "WARNING -- ACCESSIBILITY: the phone loses its voice. TalkBack and Select to Speak go silent, so a blind or partially sighted user cannot use the phone at all. Spoken turn-by-turn directions in Google Maps and other navigation and fitness apps stop. Read-aloud in browsers and reading apps, Live Translate speech output and voice dictation can stop. Open-source replacements exist but cover far fewer languages. Install and select another text-to-speech engine first, and never remove this on a phone used by someone with a vision impairment.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.google.android.videos",
+   "label": "Google TV (formerly Google Play Movies & TV)",
+   "vendor": "google",
+   "what": "Google's film and TV store and watchlist app. Renamed from Play Movies & TV in 2020 but the package id never changed. Listed as 'Google TV' on Motorola's pre-loaded apps page for the Edge 50 Fusion.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "Films and TV you have bought from Google become unwatchable on this phone until you reinstall the app (the purchases themselves are safe in your account). Nothing else breaks.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.google.android.webview",
+   "label": "Android System WebView",
+   "vendor": "google",
+   "what": "The Chromium-based engine that lets any app display web content inside itself. On Android 10 and later it ships as a bundle with Chrome and the Trichrome Library, sharing code between them.",
+   "risk": "unsafe",
+   "advice": "never",
+   "loses": "WARNING: every app that shows web content crashes or shows a blank screen -- banking apps, VPN clients, in-app login and payment pages, Reddit, Discord, GitHub, most ad-supported and news apps, and many settings screens. UAD-NG also reports notification problems. On a non-rooted phone you cannot install a replacement WebView provider easily, so this is effectively unrecoverable without the Play Store, which itself needs WebView on some builds. Never remove this. If you want less Chrome, remove the Chrome browser app instead and leave WebView alone.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.google.android.youtube",
+   "label": "YouTube",
+   "vendor": "google",
+   "what": "The YouTube video app. Confirmed pre-loaded on the Motorola Edge 50 Fusion by Motorola's own support page.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "YouTube links open in a browser instead. Casting to a TV from the YouTube app is lost. Nothing else is affected.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.google.ar.core",
+   "label": "Google Play Services for AR (ARCore)",
+   "vendor": "google",
+   "what": "Provides augmented-reality motion tracking and surface detection to other apps.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "AR features stop in apps that use them -- Pokemon GO's AR mode, Google's Measure, AR product previews in Search and Shopping, IKEA-style room previews, and some camera effects. Those apps will usually prompt you to reinstall it. No system function depends on it.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.google.ar.lens",
+   "label": "Google Lens (standalone)",
+   "vendor": "google",
+   "what": "The old standalone Google Lens app, which also carried some AR functionality. Lens today lives inside the Google app, the Camera app and Google Photos.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "The separate Lens icon disappears. Lens inside Google Search, Google Photos and Circle to Search is provided by com.google.android.googlequicksearchbox and keeps working.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.google.mainline.adservices",
+   "label": "AdServices Mainline train",
+   "vendor": "google",
+   "what": "The Google Play system (Mainline) 'train' package that delivers AdServices. UAD-NG notes it is a mandatory, undocumented Mainline module.",
+   "risk": "advanced",
+   "advice": "disable",
+   "loses": "Because this is a required Mainline train package, removing it can interfere with Google Play system updates for the whole AdServices module family. Disable rather than uninstall if you want it gone, and check that Settings > Security > Google Play system update still works afterwards.",
+   "confidence": "low"
+  },
+  {
+   "pkg": "com.google.mainline.telemetry",
+   "label": "Google Play system update telemetry",
+   "vendor": "google",
+   "what": "Records which versions of the Google Play system (Mainline) modules are installed. Google Play uses this to work out which modules need updating and to display your Google Play system update level. It contains no active code of its own.",
+   "risk": "advanced",
+   "advice": "uninstall",
+   "loses": "The Play Store may no longer detect that Mainline modules need updating, so security fixes delivered outside the normal Android update cycle can stop arriving, and the Google Play system update date in Settings may become wrong or blank. No visible day-to-day breakage, which is exactly what makes it easy to remove by mistake.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.lenovo.leos.appstore",
+   "label": "Lenovo Application Center",
+   "vendor": "lenovo",
+   "what": "Lenovo's Chinese-market app store.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "Nothing outside China. Not present on the Edge 50 Fusion.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.lenovo.lsf",
+   "label": "Lenovo ID",
+   "vendor": "lenovo",
+   "what": "The core Lenovo Service Framework, used by Lenovo's own cloud services.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "Lenovo account services stop working. Not present on the Edge 50 Fusion.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.lenovo.lsf.user",
+   "label": "Lenovo ID",
+   "vendor": "lenovo",
+   "what": "Lenovo Service Framework account sign-in, adding a Lenovo ID to the accounts list.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "You cannot sign in to a Lenovo account. Nothing on the Edge 50 Fusion needs it -- no Lenovo packages at all appear in its firmware.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.lenovo.ue.device",
+   "label": "UserExperience",
+   "vendor": "lenovo",
+   "what": "Lenovo's 'User Experience Program' analytics, which also nags you to join after every restart.",
+   "risk": "unsafe",
+   "advice": "never",
+   "loses": "DANGEROUS: removing this has been reported to cause a hard reboot every time the phone is unlocked; if USB debugging is off you may be left with a factory reset as the only fix. Not present on the Edge 50 Fusion, but keep the 'never' rating for other Lenovo/Moto hardware.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.lenovo.weathercenter",
+   "label": "Lenovo Weather",
+   "vendor": "lenovo",
+   "what": "Lenovo's weather data provider and widget.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "Lenovo weather widgets stop updating. Not present on the Edge 50 Fusion.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.tblenovo.center",
+   "label": "Runs in the background",
+   "vendor": "lenovo",
+   "what": "A Lenovo dashboard tied to the User Experience Program, with a long and unusual permission list.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "Nothing you would miss. Not present on the Edge 50 Fusion.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.tblenovo.lenovotips",
+   "label": "Lenovo Tips",
+   "vendor": "lenovo",
+   "what": "Lenovo's tips app, used to push notifications that cannot be dismissed or muted.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "The tip notifications stop. Not present on the Edge 50 Fusion.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "udc.lenovo.com.udclient",
+   "label": "Runs in the background",
+   "vendor": "lenovo",
+   "what": "Lenovo Universal Device Client -- corporate device management (locate, lock, wipe).",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "Nothing on a personal phone; company management would break on a work phone. Not present on the Edge 50 Fusion.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "android.autoinstalls.config.motorola.layout",
+   "label": "Runs in the background",
+   "vendor": "motorola",
+   "what": "The configuration file listing which partner apps get installed and where they sit on the home screen at first setup.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "Nothing after initial setup; prevents the bundled layout returning after a factory reset.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.motorola.VirtualUiccPayment",
+   "label": "Virtual UICC Payment",
+   "vendor": "motorola",
+   "what": "Support for SIM-based and NFC payments used mainly in the Chinese market.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "Nothing outside China. Not present in Edge 50 Fusion firmware.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.motorola.account",
+   "label": "Moto Account",
+   "vendor": "motorola",
+   "what": "Handles signing in to a Motorola account, used by Motorola's own apps and services.",
+   "risk": "advanced",
+   "advice": "uninstall",
+   "loses": "Motorola apps that expect a Motorola sign-in (support, some Smart Connect and warranty features) may stop working or prompt repeatedly.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.motorola.actions",
+   "label": "Moto Actions & Gestures",
+   "vendor": "motorola",
+   "what": "The engine behind Moto gestures -- chop twice for the torch, twist twice for the camera, three-finger screenshot, lift to silence.",
+   "risk": "advanced",
+   "advice": "uninstall",
+   "loses": "All Moto gestures stop working. These are the features most Moto owners actually like, so present this as a deliberate choice rather than routine bloat.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.motorola.actions.overlay",
+   "label": "Runs in the background",
+   "vendor": "motorola",
+   "what": "A small configuration file that sets the default on/off state for Moto gestures.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "Nothing beyond default gesture settings; only meaningful alongside Moto Actions.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.motorola.aiservices",
+   "label": "Moto AI Services",
+   "vendor": "motorola",
+   "what": "Supplies the on-device artificial-intelligence models that other Motorola apps use -- camera scene and photo enhancement, text features, Moto AI.",
+   "risk": "expert",
+   "advice": "disable",
+   "loses": "Camera AI processing (photo enhancement, scene detection) and any Moto AI features can break in non-obvious ways, because other Motorola apps depend on this one rather than shipping their own models. Disable and test the camera before deciding.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.motorola.android.connectivity.resources.overlay",
+   "label": "Runs in the background",
+   "vendor": "motorola",
+   "what": "Configuration that tells Android how to handle poor or unreliable Wi-Fi networks.",
+   "risk": "unsafe",
+   "advice": "never",
+   "loses": "Wi-Fi behaviour with weak networks can degrade. Both curated lists mark it unsafe.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.motorola.android.coresettingsext.overlay.doubletap",
+   "label": "Runs in the background",
+   "vendor": "motorola",
+   "what": "A configuration overlay that enables 'double-tap to put the display to sleep'.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "Double-tap-to-sleep stops working. Nothing else is affected.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.motorola.android.fmradio",
+   "label": "FMRadioService",
+   "vendor": "motorola",
+   "what": "The background service that drives the FM radio tuner hardware.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "FM radio stops working -- and note the dependency: the FM Radio app (com.motorola.fmplayer) needs THIS package to function, so removing this breaks that even if you keep the app. On the Edge 50 Fusion the service ships but the radio app does not.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.motorola.android.fota",
+   "label": "Software update",
+   "vendor": "motorola",
+   "what": "An older Motorola over-the-air update client.",
+   "risk": "unsafe",
+   "advice": "never",
+   "loses": "Breaks system updates. Not present on the Edge 50 Fusion (which uses com.motorola.ccc.ota), but must never be removed where it exists.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.motorola.android.nativedropboxagent",
+   "label": "Runs in the background",
+   "vendor": "motorola",
+   "what": "An Android crash-log collector (nothing to do with the Dropbox cloud service -- 'DropBox' is Android's internal log store).",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "Crash logs are no longer gathered for Motorola. Developer tooling only.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.motorola.android.overlay.common",
+   "label": "Runs in the background",
+   "vendor": "motorola",
+   "what": "A bundle of core device configuration values used across the system.",
+   "risk": "unsafe",
+   "advice": "never",
+   "loses": "Unpredictable breakage across the system -- both curated lists mark it unsafe. Configuration overlays like this should never be offered for removal.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.motorola.android.overlay.wfd",
+   "label": "Runs in the background",
+   "vendor": "motorola",
+   "what": "Configuration that enables wireless display (screen casting to a TV).",
+   "risk": "unsafe",
+   "advice": "never",
+   "loses": "Screen casting to a TV can stop working, and both curated lists mark it unsafe to remove.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.motorola.android.providers.chromehomepage",
+   "label": "Runs in the background",
+   "vendor": "motorola",
+   "what": "Supplies the partner-set home page for Chrome.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "Chrome's preset partner home page is gone; you can set your own. Chrome itself is unaffected.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.motorola.android.providers.settings",
+   "label": "Settings storage",
+   "vendor": "motorola",
+   "what": "The database that holds Motorola's own system settings. Other Motorola features read their configuration from it.",
+   "risk": "unsafe",
+   "advice": "never",
+   "loses": "Settings screens crash repeatedly and, on some Moto models, the phone boot-loops and needs a factory reset or a PC re-flash. Never touch this.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.motorola.android.provisioning",
+   "label": "OMA client provisioning",
+   "vendor": "motorola",
+   "what": "Accepts 'configuration SMS' from your operator that automatically sets up internet (APN) and MMS settings.",
+   "risk": "advanced",
+   "advice": "disable",
+   "loses": "If your operator changes its settings you would have to enter the APN by hand. Some published research shows these messages can be abused, so some people disable it deliberately.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.motorola.appdirectedsmsproxy",
+   "label": "Motorola Message Service",
+   "vendor": "motorola",
+   "what": "Routes special 'machine-readable' text messages sent to a specific port to the app that is waiting for them.",
+   "risk": "expert",
+   "advice": "disable",
+   "loses": "Certain carrier configuration messages and some app-to-app SMS may stop arriving. Because SMS is how one-time passcodes arrive in India, treat this as risky and disable only.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.motorola.appforecast",
+   "label": "Performance",
+   "vendor": "motorola",
+   "what": "Motorola's 'performance' helper: storage clean-up suggestions and memory management.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "You lose Motorola's clean-up prompts. Android manages memory itself; these tools rarely help.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.motorola.audiofx",
+   "label": "Runs in the background",
+   "vendor": "motorola",
+   "what": "Motorola's older audio-effects provider (equaliser, surround).",
+   "risk": "unsafe",
+   "advice": "never",
+   "loses": "Documented to cause a boot loop on at least one Moto model (Moto G7 Power). Not present on the Edge 50 Fusion, which uses Dolby plus com.motorola.sstservice instead -- but keep the 'never' rating in case it appears.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.motorola.audiorecorder",
+   "label": "Recorder",
+   "vendor": "motorola",
+   "what": "Motorola's voice recorder app.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "You lose the built-in voice recorder; existing recordings stay in storage but you will need another app to play them.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.motorola.bach.modemstats",
+   "label": "Modem Service",
+   "vendor": "motorola",
+   "what": "Collects statistics and logs about the phone's modem (signal, data) activity.",
+   "risk": "expert",
+   "advice": "disable",
+   "loses": "Mostly a telemetry component, but the Android Debloat List warns that disabling it can adversely affect data usage reporting and connectivity. Disable and watch your signal before deciding.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.motorola.batterycare",
+   "label": "Runs in the background",
+   "vendor": "motorola",
+   "what": "Battery-protection features: charge-to-80% limits, overnight charging optimisation and charging-speed management.",
+   "risk": "advanced",
+   "advice": "disable",
+   "loses": "Charge limiting and overnight optimisation stop, which shortens long-term battery health. Sits close to charging hardware, so disable rather than uninstall.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.motorola.brapps",
+   "label": "App Box",
+   "vendor": "motorola",
+   "what": "Motorola App Box -- a curated storefront that suggests and installs third-party apps.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "You lose an app-suggestion storefront. A clean removal; the Play Store is unaffected.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.motorola.bug2go",
+   "label": "Runs in the background",
+   "vendor": "motorola",
+   "what": "Motorola's bug-reporting tool: it packages up crash and system logs and sends them to Motorola.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "You can no longer submit bug reports to Motorola. Purely diagnostic.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.motorola.callredirectionservice",
+   "label": "Runs in the background",
+   "vendor": "motorola",
+   "what": "Supports carrier call redirection and forwarding behaviour in the dialler.",
+   "risk": "advanced",
+   "advice": "disable",
+   "loses": "Call forwarding or carrier call-handling features may misbehave. Not needed by most people, but it is on the call path, so disable rather than remove.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.motorola.camera3",
+   "label": "Camera",
+   "vendor": "motorola",
+   "what": "The previous-generation Motorola Camera package name, used on Android 14/15-era Moto firmware.",
+   "risk": "advanced",
+   "advice": "disable",
+   "loses": "Same as com.motorola.camera5 -- you lose the camera app. Present only if the phone has not yet been updated to the newest firmware.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.motorola.camera5",
+   "label": "Camera",
+   "vendor": "motorola",
+   "what": "The Motorola Camera app as shipped on the Edge 50 Fusion's current firmware.",
+   "risk": "advanced",
+   "advice": "disable",
+   "loses": "You have no camera app at all unless you install one first -- and third-party camera apps generally cannot reach all of the Edge 50 Fusion's lenses or Motorola's image processing. NAMING NOTE: the package number tracks the app version -- the Edge 50 Fusion's Android 16 build uses com.motorola.camera5, while earlier builds used com.motorola.camera3. Match whatever is actually installed rather than assuming.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.motorola.carrierconfig",
+   "label": "Carrier Services (Motorola)",
+   "vendor": "motorola",
+   "what": "Holds the per-network settings the phone needs for VoLTE (calls over 4G), VoWiFi (calls over Wi-Fi) and mobile data.",
+   "risk": "unsafe",
+   "advice": "never",
+   "loses": "Calls and mobile data can stop working. This matters especially in India, where Jio and Airtel are VoLTE-only -- lose VoLTE and you lose the ability to make calls at all.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.motorola.carriersettingsext",
+   "label": "Runs in the background",
+   "vendor": "motorola",
+   "what": "Motorola's extension for carrier-specific features, chiefly Wi-Fi calling on operators that support it.",
+   "risk": "expert",
+   "advice": "disable",
+   "loses": "Wi-Fi calling may disappear or stop activating. Disable it so you can switch it back on if calls misbehave.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.motorola.ccc.cce",
+   "label": "Runs in the background",
+   "vendor": "motorola",
+   "what": "A legacy Motorola 'CCE' background component found only on much older Moto phones.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "No observable effect. Important: the name 'com.motorola.ccc.cceapp' that circulates in some debloat guides could not be verified in any firmware or list -- the verifiable historical name is com.motorola.ccc.cce. Do not ship the 'cceapp' spelling.",
+   "confidence": "low"
+  },
+  {
+   "pkg": "com.motorola.ccc.checkin",
+   "label": "Motorola Checkin",
+   "vendor": "motorola",
+   "what": "Old Motorola telemetry 'check-in' service that periodically reported device data back to Motorola.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "Less data sent to Motorola. On the Edge 50 Fusion this app no longer exists as a separate package -- only an internal library file called moto-checkin.jar, which you cannot and should not touch.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.motorola.ccc.devicemanagement",
+   "label": "Device Management",
+   "vendor": "motorola",
+   "what": "Lets a company's IT department (or Motorola) manage the phone remotely -- locate it, enforce policies, wipe it. Dormant on a personal phone.",
+   "risk": "advanced",
+   "advice": "uninstall",
+   "loses": "Nothing on a personal phone, but a work-managed or employer-issued phone will stop obeying the management profile. Note that Motorola marks it non-disableable, so 'disable' is refused -- only uninstall-for-user works. Sources disagree on this one (Motorola protects it; both community lists say remove it), so treat it as a judgement call.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.motorola.ccc.mainplm",
+   "label": "Motorola Services Main",
+   "vendor": "motorola",
+   "what": "An older Motorola background service (product lifecycle management) with no user-facing feature.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "No observable effect. Not present in current Edge 50 Fusion firmware, so it may simply not exist on your phone.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.motorola.ccc.notification",
+   "label": "Motorola Notifications",
+   "vendor": "motorola",
+   "what": "Sends Motorola's own marketing and product notifications -- tips, surveys, offers, and news about new Motorola products.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "You lose Motorola's promotional notifications. It does not carry system update notices -- those come from com.motorola.ccc.ota.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.motorola.ccc.ota",
+   "label": "Motorola software update",
+   "vendor": "motorola",
+   "what": "Motorola's own over-the-air update client. It downloads and installs the firmware and security updates Motorola sends to the phone.",
+   "risk": "unsafe",
+   "advice": "never",
+   "loses": "The phone stops receiving Motorola OS and security updates entirely, and there is no other way to get them without a PC flashing tool. Motorola itself marks this package 'non-disableable' in the firmware, so a disable attempt is refused; an uninstall would still go through and is exactly what breaks updating.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.motorola.chargeboost",
+   "label": "Runs in the background",
+   "vendor": "motorola",
+   "what": "Appears to be part of Motorola's fast-charging behaviour; it is declared in the Edge 50 Fusion firmware's permission files.",
+   "risk": "advanced",
+   "advice": "disable",
+   "loses": "Fast or boosted charging may behave differently. NO published documentation was found for this package -- the presence evidence is from the firmware itself, the purpose is inferred from the name. Treat as low confidence and prefer disable.",
+   "confidence": "low"
+  },
+  {
+   "pkg": "com.motorola.contacts.preloadcontacts",
+   "label": "Preloaded Contacts Loader",
+   "vendor": "motorola",
+   "what": "Adds carrier-supplied contacts (customer service numbers) into your contact list on first setup.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "No new preloaded carrier contacts are added; contacts already in your list stay.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.motorola.coresettingsext",
+   "label": "Runs in the background",
+   "vendor": "motorola",
+   "what": "A Motorola extension that adds extra items to the Settings app.",
+   "risk": "expert",
+   "advice": "disable",
+   "loses": "Some Motorola settings entries may disappear. Both community lists mark it uncertain rather than clearly removable, so disable and check Settings.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.motorola.dciservice",
+   "label": "Runs in the background",
+   "vendor": "motorola",
+   "what": "Diagnostics service that gathers IMS/calling signal statistics for Motorola.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "Motorola gets less diagnostic data. No user-facing feature is lost.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.motorola.demo",
+   "label": "Demo mode",
+   "vendor": "motorola",
+   "what": "Turns the phone into a shop-display demonstration unit.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "Nothing on a phone you own -- retail demo mode is simply unavailable. A textbook safe removal.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.motorola.demo.env",
+   "label": "Runs in the background",
+   "vendor": "motorola",
+   "what": "Supporting environment files for shop demo mode.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "Nothing. Remove with com.motorola.demo.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.motorola.dimo",
+   "label": "Dimo / Conta Motorola",
+   "vendor": "motorola",
+   "what": "Motorola's Brazilian digital-money and bill-payment account app (Dimo Essential).",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "Nothing outside Brazil -- it is a payments service for the Brazilian market. It nonetheless ships on the Indian Edge 50 Fusion firmware, so it is a clean, high-value removal for your user.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.motorola.discovery",
+   "label": "Moto Discovery",
+   "vendor": "motorola",
+   "what": "Shows pop-up hints and feature suggestions.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "No more hint bubbles. Not found in Edge 50 Fusion firmware.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.motorola.dolby.dolbyui",
+   "label": "Dolby Atmos",
+   "vendor": "motorola",
+   "what": "The Dolby Atmos settings screen -- equaliser and sound profiles for speakers and headphones.",
+   "risk": "advanced",
+   "advice": "disable",
+   "loses": "You lose the Dolby equaliser and profiles, and speaker sound can become noticeably flatter. Disable so you can put it back.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.motorola.dynamicvolume",
+   "label": "Adaptive volume",
+   "vendor": "motorola",
+   "what": "Lets you set different volume levels for different apps and adapts volume to your surroundings.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "Per-app volume control disappears; normal volume keys still work.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.motorola.easyprefix",
+   "label": "Easy Prefix",
+   "vendor": "motorola",
+   "what": "Automatically adds a carrier or country dialling prefix to numbers when you are abroad.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "You would type international prefixes yourself. Community reports say it works poorly anyway.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.motorola.email",
+   "label": "Moto Email",
+   "vendor": "motorola",
+   "what": "Motorola's own email client.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "You lose Motorola's email app; Gmail is unaffected. Not in Edge 50 Fusion firmware.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.motorola.enterprise.adapter.service",
+   "label": "Runs in the background",
+   "vendor": "motorola",
+   "what": "The adapter half of Motorola's ThinkShield/enterprise management framework.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "Nothing on a personal phone; company device-management features would break on a managed phone.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.motorola.enterprise.service",
+   "label": "Moto ThinkShield",
+   "vendor": "motorola",
+   "what": "Part of Motorola's ThinkShield business security suite, for phones deployed by a company.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "Nothing on a personal phone. Do not remove it on a phone your employer manages.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.motorola.entitlement",
+   "label": "Entitlement",
+   "vendor": "motorola",
+   "what": "Checks with your network operator whether features such as tethering (mobile hotspot) and Wi-Fi calling are allowed on your plan.",
+   "risk": "expert",
+   "advice": "disable",
+   "loses": "Hotspot or Wi-Fi calling can stop working on carriers that gate them. On an unbranded Indian retail unit the risk is lower, but this is still telephony plumbing.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.motorola.faceunlock",
+   "label": "Moto Face Unlock",
+   "vendor": "motorola",
+   "what": "Unlocks the phone by looking at it, using the front camera.",
+   "risk": "advanced",
+   "advice": "uninstall",
+   "loses": "Face unlock disappears and you fall back to fingerprint or PIN. Camera-based face unlock is much weaker security than a fingerprint, so many people remove it on purpose.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.motorola.faceunlocktrustagent",
+   "label": "Runs in the background",
+   "vendor": "motorola",
+   "what": "The lock-screen 'trust agent' that tells Android the face it saw is trusted.",
+   "risk": "advanced",
+   "advice": "uninstall",
+   "loses": "Face unlock stops working. Remove it together with com.motorola.faceunlock, or neither.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.motorola.fmplayer",
+   "label": "FM Radio",
+   "vendor": "motorola",
+   "what": "Motorola's FM radio app (needs wired headphones as an aerial).",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "No FM radio app. It is not in the Edge 50 Fusion firmware, so it is probably not installed on your phone.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.motorola.frameworks.singlehand",
+   "label": "Runs in the background",
+   "vendor": "motorola",
+   "what": "Provides one-handed mode, which shrinks the screen down towards your thumb.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "One-handed mode stops working. Not found in current Edge 50 Fusion firmware.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.motorola.freeform",
+   "label": "Runs in the background",
+   "vendor": "motorola",
+   "what": "Provides free-floating resizable app windows (Motorola's windowed multitasking).",
+   "risk": "advanced",
+   "advice": "disable",
+   "loses": "Floating/windowed apps stop working; split-screen is unaffected. Disable so you can restore it if multitasking behaves oddly.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.motorola.gamemode",
+   "label": "Moto Gametime",
+   "vendor": "motorola",
+   "what": "A gaming overlay: block calls and notifications while playing, quick screenshots, performance tweaks.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "The in-game side panel and its blocking features disappear. Games themselves are unaffected.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.motorola.genie",
+   "label": "Device Help",
+   "vendor": "motorola",
+   "what": "Device Help (formerly Moto Help) -- runs hardware self-tests, shows tutorials and puts you in touch with Motorola support.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "You lose the built-in diagnostics and support contact screens; support is still reachable via Motorola's website.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.motorola.gesture",
+   "label": "Gesture navigation tutorial",
+   "vendor": "motorola",
+   "what": "The one-off tutorial that teaches swipe-based navigation.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "Nothing after you have seen it once. Gesture navigation itself is part of Android, not this app.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.motorola.handwritingcalculator",
+   "label": "Runs in the background",
+   "vendor": "motorola",
+   "what": "A calculator you write sums into by hand.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "The handwriting calculator is gone. Not found in Edge 50 Fusion firmware.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.motorola.hce",
+   "label": "Runs in the background",
+   "vendor": "motorola",
+   "what": "Motorola's host card emulation service -- the part of NFC that lets the phone act as a contactless card.",
+   "risk": "expert",
+   "advice": "never",
+   "loses": "Contactless payments and transit cards can stop working, and NFC card emulation is awkward to restore. Leave it alone if you tap to pay.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.motorola.help",
+   "label": "Moto feedback",
+   "vendor": "motorola",
+   "what": "Lets you rate the phone and send feedback to Motorola.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "You can no longer send Motorola feedback from the phone. No other feature depends on it.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.motorola.help.extlog",
+   "label": "Feedback Assistant",
+   "vendor": "motorola",
+   "what": "Collects extended log files to attach to feedback reports.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "Nothing user-facing -- it only gathers logs. A pure telemetry component.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.motorola.hiddenmenuapp",
+   "label": "HiddenMenu",
+   "vendor": "motorola",
+   "what": "Another hidden engineering menu reached through dialler codes.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "Those hidden engineering screens stop opening. No normal feature is affected.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.motorola.installer",
+   "label": "Runs in the background",
+   "vendor": "motorola",
+   "what": "Background helper Motorola uses to install and update its own system apps and update payloads.",
+   "risk": "expert",
+   "advice": "never",
+   "loses": "Motorola app and update installation can silently fail. Motorola lists this package as 'non-disableable' in the Edge 50 Fusion firmware, which is a strong signal it is part of the update path; removal is not worth the risk for the space saved.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.motorola.iotservice",
+   "label": "Moto IoT Service",
+   "vendor": "motorola",
+   "what": "Connects Motorola accessories -- Moto Buds earbuds and Moto Tag trackers -- including their AI actions and button settings.",
+   "risk": "advanced",
+   "advice": "uninstall",
+   "loses": "Moto Buds and Moto Tag lose their extra features and settings. Meaningless if you own no Motorola accessories.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.motorola.launcher3",
+   "label": "Moto App Launcher",
+   "vendor": "motorola",
+   "what": "The Motorola home screen and app drawer, and also the code that draws the Recents (recent apps) screen.",
+   "risk": "expert",
+   "advice": "never",
+   "loses": "The Recents screen stops working -- and it stays broken even if you install a third-party launcher, because Recents lives in this package. If you dislike the Moto home screen, set a different launcher as default instead of removing this.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.motorola.launcherconfig",
+   "label": "Runs in the background",
+   "vendor": "motorola",
+   "what": "Partner/regional customisation for the home screen: which shortcuts and wallpapers ship on the phone.",
+   "risk": "advanced",
+   "advice": "uninstall",
+   "loses": "Some bundled wallpapers and default home-screen layout choices disappear. Your existing layout is unaffected.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.motorola.leanbacklauncher",
+   "label": "Moto Experience Hub",
+   "vendor": "motorola",
+   "what": "A Motorola content/experience hub that most owners dislike.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "The hub disappears. Not found in Edge 50 Fusion firmware.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.motorola.lifetimedata",
+   "label": "Runs in the background",
+   "vendor": "motorola",
+   "what": "Records lifetime device statistics -- total call time, time since first switch-on, manufacturing date.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "Those long-term counters stop being kept. No visible feature is lost.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.motorola.livewallpaper3",
+   "label": "Moto interactive wallpapers",
+   "vendor": "motorola",
+   "what": "Motorola's animated/interactive wallpapers that react to touch and movement.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "Animated Moto wallpapers disappear; if one is currently set, the wallpaper may reset to a plain colour. Static wallpapers and Google wallpapers are unaffected.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.motorola.mobiledesktop",
+   "label": "Smart Connect",
+   "vendor": "motorola",
+   "what": "Smart Connect (formerly Ready For) -- mirror or stream the phone to a PC, TV or tablet, share files and use the phone as a desktop.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "You lose phone-to-PC/TV mirroring and file sharing with Motorola's Smart Connect app. Confirmed package identity via its Google Play listing.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.motorola.mobiledesktop.core",
+   "label": "Runs in the background",
+   "vendor": "motorola",
+   "what": "The background half of Smart Connect that actually does the streaming and device pairing.",
+   "risk": "advanced",
+   "advice": "disable",
+   "loses": "Smart Connect stops working. Community testing reports lock-screen and clock-widget glitches after UNINSTALLING this one, so disable it instead -- that is the safer route even if you also remove com.motorola.mobiledesktop.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.motorola.motcameradesktop",
+   "label": "Smart Connect Video",
+   "vendor": "motorola",
+   "what": "Lets the phone act as a webcam for a PC and supplies video-call effects.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "You lose 'use phone as webcam' and Smart Connect video effects.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.motorola.moto",
+   "label": "Moto",
+   "vendor": "motorola",
+   "what": "The 'Moto' app -- the hub where you turn Moto features on and off: gestures, display extras, personalisation shortcuts.",
+   "risk": "advanced",
+   "advice": "uninstall",
+   "loses": "You lose the settings screens for Moto features. Gestures already switched on generally keep working while com.motorola.actions is installed, but you can no longer change them.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.motorola.motocare",
+   "label": "Moto Care",
+   "vendor": "motorola",
+   "what": "The older Moto Care support app, which lives alongside Device Help on current firmware.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "You lose a second, largely redundant support entry point.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.motorola.motocare.internal",
+   "label": "Runs in the background",
+   "vendor": "motorola",
+   "what": "Background support component for Moto Care.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "Nothing beyond Moto Care itself. Remove with com.motorola.motocare.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.motorola.motocit",
+   "label": "CQATest",
+   "vendor": "motorola",
+   "what": "A hidden factory hardware-test menu (reached by typing a secret code in the dialler), used on the production line and in service centres.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "The hidden hardware-test menu is gone. Diagnostics only -- no everyday feature depends on it. Note: this is the package people mean by 'com.motorola.motocit'; it is diagnostics, not something load-bearing.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.motorola.motodisplay",
+   "label": "Moto Display",
+   "vendor": "motorola",
+   "what": "The older standalone Moto Display / Peek Display app that showed notifications on a sleeping screen.",
+   "risk": "advanced",
+   "advice": "uninstall",
+   "loses": "Peek/always-on notification previews are lost. On the Edge 50 Fusion this standalone package is absent -- the feature has moved inside com.motorola.moto and the system UI -- so your phone probably has no such app.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.motorola.motofpstouch",
+   "label": "Runs in the background",
+   "vendor": "motorola",
+   "what": "Moto Power Touch -- lets you assign actions to different presses of the power button.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "Custom power-button actions are lost. Not found in current Edge 50 Fusion firmware.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.motorola.motolights",
+   "label": "Runs in the background",
+   "vendor": "motorola",
+   "what": "Controls Moto's edge-lighting effects -- the coloured glow around the screen edge for calls and notifications.",
+   "risk": "advanced",
+   "advice": "uninstall",
+   "loses": "Edge lighting stops. Community reports link this package to some display-brightness behaviour, so check adaptive brightness after removing it.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.motorola.motosecure",
+   "label": "Runs in the background",
+   "vendor": "motorola",
+   "what": "Not an ordinary app at all -- on the Edge 50 Fusion this is a signed system module (an APEX) that ships Moto Secure's system-level service code.",
+   "risk": "unsafe",
+   "advice": "never",
+   "loses": "System modules of this kind cannot be uninstalled per-user and attempting to interfere with them risks an unbootable phone. If your debloater lists it, hide it or mark it undeletable.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.motorola.motosecurecore",
+   "label": "Runs in the background",
+   "vendor": "motorola",
+   "what": "The engine behind Moto Secure's App Lock -- it holds the app-lock credential and enforces which apps need a PIN or fingerprint.",
+   "risk": "expert",
+   "advice": "disable",
+   "loses": "App Lock stops protecting apps, and if it is removed while apps are locked you can be left unable to reach the settings that unlock them. Turn App Lock off in Moto Secure first, then disable.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.motorola.motosignature.app",
+   "label": "MotoSignatureApp",
+   "vendor": "motorola",
+   "what": "Declares Motorola's private permissions -- the internal rules that let Moto system apps talk to each other.",
+   "risk": "expert",
+   "advice": "disable",
+   "loses": "Other Motorola apps can lose permissions they expect and misbehave in ways that are hard to trace back. Some debloat lists suggest removing it; the safer route is to leave it, or disable and watch for oddities.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.motorola.motosignature2.app",
+   "label": "Runs in the background",
+   "vendor": "motorola",
+   "what": "A second-generation version of Motorola's internal permission declarations.",
+   "risk": "expert",
+   "advice": "disable",
+   "loses": "Same as com.motorola.motosignature.app -- Moto apps may lose internal permissions. Prefer leaving it in place.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.motorola.mototour",
+   "label": "Moto Tour",
+   "vendor": "motorola",
+   "what": "A guided tour app that shows you how to use the phone.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "The tour is gone. Not found in Edge 50 Fusion firmware.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.motorola.msimsettings",
+   "label": "Dual SIM settings",
+   "vendor": "motorola",
+   "what": "Provides the dual-SIM screens and logic -- which SIM makes calls, which carries data, SIM naming.",
+   "risk": "unsafe",
+   "advice": "never",
+   "loses": "Dual-SIM management breaks: you may be unable to choose which SIM is used for calls or mobile data. On a two-SIM phone this is effectively a telephony break.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.motorola.msimsettings.overlay",
+   "label": "Runs in the background",
+   "vendor": "motorola",
+   "what": "A configuration overlay for the dual-SIM screens; on the Edge 50 Fusion it appears to be an unused single-SIM variant.",
+   "risk": "advanced",
+   "advice": "disable",
+   "loses": "Probably nothing, but it sits next to telephony configuration, so disable rather than uninstall and check calls and data on both SIMs afterwards.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.motorola.mykey",
+   "label": "MyKey",
+   "vendor": "motorola",
+   "what": "Motorola's feature for assigning custom actions and usage restrictions to keys and device functions.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "Custom key actions set through MyKey stop working. Rarely used on this model.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.motorola.nfc",
+   "label": "Runs in the background",
+   "vendor": "motorola",
+   "what": "Motorola's support components for NFC (tap-to-pay, tag reading).",
+   "risk": "advanced",
+   "advice": "disable",
+   "loses": "NFC features can stop working, including contactless payment. Not found in the current Edge 50 Fusion firmware.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.motorola.nfwlocationattribution",
+   "label": "Runs in the background",
+   "vendor": "motorola",
+   "what": "Records when the mobile network requests the phone's location, for the carrier-location entry in Settings.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "You lose a rarely-read information screen about carrier location requests. Emergency location services do not depend on it.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.motorola.om",
+   "label": "Moto Unplugged",
+   "vendor": "motorola",
+   "what": "Moto Unplugged -- a focus/digital-wellbeing mode where you choose which apps and interruptions are allowed while you switch off.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "You lose the Moto Unplugged focus mode; Android's own Focus Mode and Do Not Disturb remain. IMPORTANT NAMING CORRECTION: Moto Unplugged's real package is com.motorola.om (confirmed by its Google Play listing). The plausible-looking 'com.motorola.unplugged' does not exist -- do not ship it. Older debloat lists describe com.motorola.om vaguely as 'operational management', which is wrong.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.motorola.omadm.service",
+   "label": "Runs in the background",
+   "vendor": "motorola",
+   "what": "Carrier device-management/provisioning client used to switch operator services on and off remotely.",
+   "risk": "advanced",
+   "advice": "uninstall",
+   "loses": "Rarely used on unbranded phones. Carrier-side service activation (mostly a US thing) would stop working.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.motorola.overlay.googleasi",
+   "label": "Runs in the background",
+   "vendor": "motorola",
+   "what": "Motorola's configuration for Android System Intelligence, the Google component behind Live Caption, smart replies and now-playing.",
+   "risk": "advanced",
+   "advice": "disable",
+   "loses": "Android System Intelligence features (Live Caption, smart text selection, notification replies) may stop working properly.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.motorola.paks",
+   "label": "PAKS Finance",
+   "vendor": "motorola",
+   "what": "Motorola's device-financing enforcement app ('kiosk' lock). On phones bought on an instalment plan it can lock the phone if payments stop.",
+   "risk": "expert",
+   "advice": "never",
+   "loses": "On a financed or instalment-plan phone, tampering with the financing lock can lock or disable the device, or breach the finance agreement. On a fully-paid retail phone it lies dormant and removing it gains nothing. Motorola marks its companion notification package non-disableable. Leave it alone.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.motorola.paks.notification",
+   "label": "Runs in the background",
+   "vendor": "motorola",
+   "what": "The notification component of Motorola's device-financing lock.",
+   "risk": "expert",
+   "advice": "never",
+   "loses": "Same risk as com.motorola.paks. Motorola explicitly flags this one as non-disableable in the Edge 50 Fusion firmware, so treat it as protected.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.motorola.personalize",
+   "label": "Personalise",
+   "vendor": "motorola",
+   "what": "The theming engine behind Personalise -- accent colours, fonts, icon shapes, wallpaper-based colour schemes.",
+   "risk": "advanced",
+   "advice": "uninstall",
+   "loses": "You lose Motorola's theming screen and may be stuck with whatever theme is currently applied. Confirmed present on the Edge 50 Fusion.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.motorola.photoeditor",
+   "label": "Moto Photo Editor",
+   "vendor": "motorola",
+   "what": "Motorola's photo editing app.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "You lose Motorola's photo editor; Google Photos editing is unaffected. Not present in current Edge 50 Fusion firmware.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.motorola.playautoinstallext",
+   "label": "Runs in the background",
+   "vendor": "motorola",
+   "what": "Part of Motorola's mechanism for automatically installing a set of partner apps when the phone is first set up or reset.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "After a factory reset the phone would not silently reinstall the partner app bundle -- usually the point of removing it. No everyday feature is lost.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.motorola.programmenu",
+   "label": "Programming Menu",
+   "vendor": "motorola",
+   "what": "A hidden developer/service menu opened with a dialler code.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "The hidden menu is unavailable. Not present in current Edge 50 Fusion firmware.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.motorola.rcsConfigService",
+   "label": "Runs in the background",
+   "vendor": "motorola",
+   "what": "Configures RCS -- the modern chat features (typing indicators, read receipts, high-quality images) inside Google Messages.",
+   "risk": "expert",
+   "advice": "disable",
+   "loses": "RCS chat features in Google Messages may stop working or fail to re-register, leaving you on plain SMS.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.motorola.revoker.services",
+   "label": "Runs in the background",
+   "vendor": "motorola",
+   "what": "A small helper used only during first-boot setup.",
+   "risk": "advanced",
+   "advice": "disable",
+   "loses": "Nothing after setup is complete, but it may be needed again after a factory reset. Disabling is reversible; prefer that over uninstalling.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.motorola.screenshoteditor",
+   "label": "Screenshot editor",
+   "vendor": "motorola",
+   "what": "The editor that pops up after a screenshot, including long/scrolling screenshots of whole web pages.",
+   "risk": "advanced",
+   "advice": "uninstall",
+   "loses": "Screenshots still work, but you lose the crop/annotate pop-up and scrolling screenshots. Genuinely useful -- not routine bloat.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.motorola.securevault",
+   "label": "Secure Folder",
+   "vendor": "motorola",
+   "what": "An encrypted folder for hiding photos, files and apps behind a separate PIN.",
+   "risk": "expert",
+   "advice": "disable",
+   "loses": "Anything stored inside Secure Folder can become permanently unreachable. Move everything out first; then disable rather than uninstall.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.motorola.securityhub",
+   "label": "Moto Secure",
+   "vendor": "motorola",
+   "what": "The Moto Secure dashboard: PIN-pad scrambling, network protection, app lock and Secure Folder settings gathered in one place.",
+   "risk": "advanced",
+   "advice": "uninstall",
+   "loses": "You lose the Moto Secure screen and its shortcuts. If you have put anything into Secure Folder or set up App Lock, deal with that FIRST -- see com.motorola.securevault and com.motorola.motosecurecore.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.motorola.securityhubext",
+   "label": "Runs in the background",
+   "vendor": "motorola",
+   "what": "An extension component of the Moto Secure dashboard.",
+   "risk": "advanced",
+   "advice": "uninstall",
+   "loses": "Parts of the Moto Secure screen may be missing or empty. Remove alongside com.motorola.securityhub, not on its own.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.motorola.settings",
+   "label": "Runs in the background",
+   "vendor": "motorola",
+   "what": "Listed in the Android Debloat List with the label 'System update' and a caution flag; its exact role could not be confirmed.",
+   "risk": "expert",
+   "advice": "never",
+   "loses": "UNVERIFIED -- this package could not be confirmed in Edge 50 Fusion firmware, and the one list that mentions it associates it with system updates. Given the possible update impact, do not offer it for removal without device-level confirmation.",
+   "confidence": "low"
+  },
+  {
+   "pkg": "com.motorola.setup",
+   "label": "Setup",
+   "vendor": "motorola",
+   "what": "Motorola's addition to the first-run setup wizard (the screens you see when you switch the phone on for the first time).",
+   "risk": "expert",
+   "advice": "never",
+   "loses": "Almost nothing visible day-to-day, but the Universal Android Debloater project warns that freezing this package stops Google Play system updates (Project Mainline), which means missed monthly security fixes. The Android Debloat List disagrees and calls it removable. Given the near-zero benefit, leave it alone.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.motorola.slpc_sys",
+   "label": "Runs in the background",
+   "vendor": "motorola",
+   "what": "Motorola's motion and position service: it works out whether the phone is face-down, in a pocket, or being picked up.",
+   "risk": "advanced",
+   "advice": "disable",
+   "loses": "Gestures and screen behaviours that depend on movement or pocket detection (lift to check, flip to silence, some display wake behaviour) become unreliable. It does use location services, which is why some people remove it.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.motorola.smart5g",
+   "label": "Runs in the background",
+   "vendor": "motorola",
+   "what": "Battery-saving logic that drops the phone from 5G to 4G when 5G is not useful.",
+   "risk": "expert",
+   "advice": "disable",
+   "loses": "Battery life on 5G can get noticeably worse, and network switching behaviour changes. It touches radio selection, so disable only.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.motorola.smartfeed",
+   "label": "Smart Feed",
+   "vendor": "motorola",
+   "what": "Motorola's built-in content and promotion feed -- 'suggested apps' in the app drawer, sponsored recommendations, and lock-screen content.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "You lose 'Suggested apps' in the Moto app drawer and Motorola's promotional content. This app was found in 2025 to be routing app launches through affiliate-tracking links (Motorola called it unintended and fixed it), and users report notable background data use -- a strong candidate for removal.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.motorola.spaces",
+   "label": "Family Space",
+   "vendor": "motorola",
+   "what": "A child-friendly mode: you pick which apps a child may use and how long for.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "Family Space is gone. Only matters if you hand the phone to a child; Google Family Link does the same job.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.motorola.sstservice",
+   "label": "Runs in the background",
+   "vendor": "motorola",
+   "what": "Provides Motorola's spatial-sound (surround) audio effect.",
+   "risk": "advanced",
+   "advice": "disable",
+   "loses": "Spatial audio stops working and some audio-effect settings may vanish. Because this is an audio effects provider, disable rather than uninstall.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.motorola.stylus",
+   "label": "Moto Note",
+   "vendor": "motorola",
+   "what": "Moto Note -- Motorola's handwriting and sketching notebook, built for stylus phones.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "Handwritten notes app is gone; export anything you want to keep first. The Edge 50 Fusion has no stylus and this app is not in its firmware, so it is probably absent.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.motorola.systemserver",
+   "label": "Runs in the background",
+   "vendor": "motorola",
+   "what": "A Motorola background service that other Moto features call into; it is also tied to the reliability of the chop-for-torch gesture.",
+   "risk": "advanced",
+   "advice": "disable",
+   "loses": "The fast torch gesture can become inconsistent and other Moto features may lose a helper they expect. Disable rather than uninstall.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.motorola.systemui.desk",
+   "label": "Runs in the background",
+   "vendor": "motorola",
+   "what": "The desktop-style taskbar and interface used when the phone is connected to an external screen.",
+   "risk": "advanced",
+   "advice": "disable",
+   "loses": "Desktop mode on an external monitor loses its taskbar. If you never plug the phone into a screen, nothing changes.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.motorola.thermalservice",
+   "label": "Runs in the background",
+   "vendor": "motorola",
+   "what": "Watches the phone's temperature and throttles or shuts it down before it overheats.",
+   "risk": "unsafe",
+   "advice": "never",
+   "loses": "Overheating protection is weakened -- a genuine hardware-safety and battery risk. Never remove.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.motorola.timeweatherwidget",
+   "label": "Moto Widget",
+   "vendor": "motorola",
+   "what": "The Moto clock-and-weather home-screen widget.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "The Moto clock/weather widget vanishes from the home screen and leaves a gap where it was. Any other clock widget works fine.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.motorola.timezonedata",
+   "label": "Time Zone Data",
+   "vendor": "motorola",
+   "what": "Keeps time-zone information up to date so the clock is right when you travel.",
+   "risk": "unsafe",
+   "advice": "never",
+   "loses": "Documented to cause a boot loop on at least one Moto model. Not present on the Edge 50 Fusion, but keep the 'never' rating for safety.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.motorola.wifi.motowifimetrics",
+   "label": "Runs in the background",
+   "vendor": "motorola",
+   "what": "Reports daily Wi-Fi usage statistics to Motorola.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "Nothing -- it is telemetry only. Wi-Fi itself is untouched.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.amazon.appmanager",
+   "label": "Mobile Device Information Provider",
+   "vendor": "preinstalled",
+   "what": "A background Amazon component preinstalled on some phones under partner deals. It has no icon and its purpose is device-information reporting rather than anything you use.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "Amazon apps stop being installed automatically. Note that Motorola marks this package non-disableable, so 'disable' will be refused and uninstall-for-user is the only route.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.amazon.avod.thirdpartyclient",
+   "label": "Amazon Prime Video",
+   "vendor": "preinstalled",
+   "what": "Amazon's video streaming app, commonly preinstalled under a commercial deal.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "You lose Prime Video. Reinstallable from the Play Store.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.amazon.mShop.android.shopping",
+   "label": "Amazon Shopping",
+   "vendor": "preinstalled",
+   "what": "Amazon's shopping app (global build), commonly preinstalled under a commercial deal.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "You lose the Amazon app. Reinstallable from the Play Store.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.amazon.mp3",
+   "label": "Amazon Music",
+   "vendor": "preinstalled",
+   "what": "Amazon's music streaming app, sometimes preinstalled.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "You lose Amazon Music. Reinstallable from the Play Store.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.aura.oobe.lenovo",
+   "label": "Aura",
+   "vendor": "preinstalled",
+   "what": "HIGH-VALUE REMOVAL -- the Lenovo-branded build of the same Aura silent installer. Motorola is a Lenovo subsidiary, so this variant occasionally appears on Motorola builds.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "Unsolicited installs stop. No genuine feature is lost. Can return after a major system update.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.aura.oobe.motorola",
+   "label": "MotoApps",
+   "vendor": "preinstalled",
+   "what": "HIGH-VALUE REMOVAL -- a silent app installer. Aura is an advertising company's on-device platform that Motorola is paid to preinstall. During or after setup it installs sponsored apps and games you did not choose, and nags you with notifications to accept more.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "You stop getting unsolicited app and game installs and their notifications. No genuine phone feature is lost. Warning: this is a system app, so a major system update or a factory reset can bring it back -- re-check after any big Android update.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.dolby.daxservice",
+   "label": "Runs in the background",
+   "vendor": "preinstalled",
+   "what": "Dolby's own audio-processing engine that the Dolby Atmos screen controls; it sits in the phone's audio path.",
+   "risk": "unsafe",
+   "advice": "never",
+   "loses": "Removing an audio-effects engine can leave apps with no working audio output, and on some Moto models audio-effect removal causes a boot loop. Leave it and disable the Dolby settings app instead if you want it out of the way.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.dti.motorola",
+   "label": "Mobile Services Manager",
+   "vendor": "preinstalled",
+   "what": "HIGH-VALUE REMOVAL -- a silent app installer with a deliberately official-sounding name. Made by the advertising company Digital Turbine, it downloads, installs and updates sponsored apps in the background without asking you, and holds a very large set of permissions.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "Apps stop appearing on your phone by themselves. Nothing you use is lost. Warning: it is a system app and can be restored by a major system update or factory reset, so re-check after updates. Removing it for the current user is enough to stop it running day to day.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.facebook.appmanager",
+   "label": "Meta App Installer",
+   "vendor": "preinstalled",
+   "what": "A hidden background updater that Meta pays phone makers to preinstall. It downloads and installs updates to Facebook, Instagram and Messenger outside the Play Store. It is not the Facebook app itself and has no icon.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "Nothing you can see stops working. If you later install Facebook or Instagram from the Play Store, they update normally through Google Play instead. May be restored by a major system (OTA) update or a factory reset -- removing for the current user is enough day to day, but re-check after any big Android update.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.facebook.katana",
+   "label": "Facebook",
+   "vendor": "preinstalled",
+   "what": "The full Facebook social-network app, preinstalled under a commercial deal rather than because the phone needs it.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "You lose the Facebook app. You can reinstall it any time from the Play Store, where you will get a normal user-installed copy that is fully removable.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.facebook.services",
+   "label": "Meta Services",
+   "vendor": "preinstalled",
+   "what": "A hidden Meta background service that runs whether or not you ever sign in to Facebook. It supports Meta's location/nearby-places and analytics features for the Meta apps.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "No visible feature is lost. Facebook and Instagram still work if you install them yourself. Can return after a major system update.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.facebook.system",
+   "label": "Meta App Manager",
+   "vendor": "preinstalled",
+   "what": "An empty 'stub' app whose only job is to install the full Facebook app and nudge you to use it. It has no user interface of its own.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "You simply stop being prompted to install Facebook. Nothing else changes. Can return after a major system update.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.glance.lockscreenM",
+   "label": "Glance",
+   "vendor": "preinstalled",
+   "what": "HIGH-VALUE REMOVAL -- the notorious Motorola lock-screen advertising platform, shipped as 'GlanceSpacesMotorola'. It takes over your lock screen with sponsored news, games and ads. Turning it off in Settings often results in full-screen prompts asking you to switch it back on.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "Your lock screen goes back to a normal wallpaper and notifications. Nothing you need is lost. Warning: the app file stays in the phone's read-only system area, so a factory reset or a major system update can bring it back. It is also worth turning off its two hidden switches (the secure settings state_glance_lockscreen and state_space_lockscreen) alongside removal.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.indus.appstore",
+   "label": "Indus Appstore",
+   "vendor": "preinstalled",
+   "what": "An Indian third-party app store (by PhonePe) preloaded on Indian Motorola units.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "You lose an alternative app store you almost certainly never use. The Play Store is unaffected.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.inmobi.installer",
+   "label": "Runs in the background",
+   "vendor": "preinstalled",
+   "what": "HIGH-VALUE REMOVAL -- an installer component from the advertising company InMobi (the same group behind Glance).",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "Nothing you would miss -- it exists to install promoted apps. Confirmed in the Indian Edge 50 Fusion firmware.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.lmi.motorola.rescuesecurity",
+   "label": "Rescue Security",
+   "vendor": "preinstalled",
+   "what": "LogMeIn Rescue remote-support tool that allows a Motorola agent to view and control the phone during a support session.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "Motorola support can no longer take remote control of your phone. Many people remove it on privacy grounds.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.microsoft.appmanager",
+   "label": "Link to Windows",
+   "vendor": "preinstalled",
+   "what": "Connects the phone to a Windows PC for messages, photos and calls. On some phones this is a genuine, deeply integrated feature rather than bloatware.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "The 'Link to Windows' feature in Quick Settings stops working. If you use Phone Link on a Windows PC, keep it.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.microsoft.office.officehubrow",
+   "label": "Microsoft 365 / Office Mobile",
+   "vendor": "preinstalled",
+   "what": "Microsoft's combined Word, Excel and PowerPoint app, sometimes preinstalled.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "You lose the Office app. Reinstallable from the Play Store.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.microsoft.office.outlook",
+   "label": "Microsoft Outlook",
+   "vendor": "preinstalled",
+   "what": "Microsoft's email and calendar app, sometimes preinstalled under Microsoft's OEM deals.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "You lose Outlook. Reinstallable from the Play Store. Make sure any email accounts set up only in Outlook are moved first.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.microsoft.skydrive",
+   "label": "Microsoft OneDrive",
+   "vendor": "preinstalled",
+   "what": "Microsoft's cloud storage app, sometimes preinstalled under Microsoft's OEM deals.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "You lose the OneDrive app. Files already in OneDrive stay in your account. Reinstallable from the Play Store.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.payjoy.access",
+   "label": "Runs in the background",
+   "vendor": "preinstalled",
+   "what": "PayJoy's financing-lock app, preloaded on some Motorola units sold on instalment plans; it can lock the phone for non-payment.",
+   "risk": "expert",
+   "advice": "never",
+   "loses": "Removing it on a financed phone can lock the device or breach the finance contract. Motorola marks it non-disableable and non-force-stoppable. Present in the global Edge 50 Fusion firmware; not seen in the Indian build.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.taboola.mip",
+   "label": "Runs in the background",
+   "vendor": "preinstalled",
+   "what": "HIGH-VALUE REMOVAL -- a background advertising module from Taboola that pushes a lock-screen stories feed of low-quality ads and articles. Uses background data and nags the user.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "The lock-screen story feed and its background data use stop. Nothing you need is lost.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "in.amazon.mShop.android.shopping",
+   "label": "Amazon Shopping (India build)",
+   "vendor": "preinstalled",
+   "what": "The Amazon India build of the shopping app, found on Indian retail units -- which is also what many Bangladeshi grey-market and official units are.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "You lose the Amazon India app. Reinstallable from the Play Store.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.qti.dcf",
+   "label": "Qualcomm DCF",
+   "vendor": "qualcomm",
+   "what": "An empty Qualcomm package with no code, related to Bluetooth content sharing on paper only.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "Nothing changes -- the package contains no working code.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.qti.diagservices",
+   "label": "Qualcomm Diagnostic Services",
+   "vendor": "qualcomm",
+   "what": "A tiny diagnostics collector that starts at boot and when the phone is plugged into a computer.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "No visible change. Only used for hardware data collection.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.qti.dpmserviceapp",
+   "label": "Qualcomm Data Power Manager",
+   "vendor": "qualcomm",
+   "what": "Qualcomm's Data Power Manager service, believed to manage power efficiency of the modem and data connection. Its exact job is not publicly documented.",
+   "risk": "expert",
+   "advice": "disable",
+   "loses": "Because nobody can say for certain what it does, removing it risks worse battery life on mobile data, or data connection problems. Disable and watch for a few days before considering anything more.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.qti.ltebc",
+   "label": "Qualcomm LTE Broadcast Manager",
+   "vendor": "qualcomm",
+   "what": "The manager component for LTE Broadcast (see eMBMS above).",
+   "risk": "advanced",
+   "advice": "uninstall",
+   "loses": "Same as eMBMS -- you lose an operator feature that is not used in Bangladesh or India. Calls and mobile data are unaffected.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.qti.phone",
+   "label": "Qualcomm Phone / IMS Service",
+   "vendor": "qualcomm",
+   "what": "Qualcomm's telephony and IMS (internet-based calling) helper that sits between Android's dialler and the modem.",
+   "risk": "expert",
+   "advice": "disable",
+   "loses": "Can break VoLTE (calls over 4G), VoWiFi (calling over Wi-Fi) and in some cases calling altogether. Some users report calls still work after removal, but this is device-dependent and not worth the risk. If it must be touched, disable rather than uninstall so it can be re-enabled.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.qti.primarycardcontroller",
+   "label": "Qualcomm Primary Card Controller",
+   "vendor": "qualcomm",
+   "what": "Controls SIM detection and which SIM is the primary one on some Qualcomm-based phones.",
+   "risk": "unsafe",
+   "advice": "never",
+   "loses": "SIM detection and dual-SIM switching can break. Rated unsafe by community lists.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.qti.qcc",
+   "label": "Qualcomm QCC",
+   "vendor": "qualcomm",
+   "what": "A newer (Android 13 onwards) Qualcomm logging and analytics component tied to Qualcomm Device Management and Analytics.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "No visible change reported.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.qti.qualcomm.datastatusnotification",
+   "label": "Qualcomm Data Status Notification",
+   "vendor": "qualcomm",
+   "what": "Shows warnings when you approach a mobile-data limit, and is tied into the chipset's data status reporting.",
+   "risk": "expert",
+   "advice": "disable",
+   "loses": "On some skins, disabling this has broken the whole mobile-network settings section and made SIMs show 'no service'. That is documented on Xiaomi's HyperOS rather than Motorola, so the Motorola behaviour is unknown -- treat as risky.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.qti.qualcomm.deviceinfo",
+   "label": "Qualcomm Device Info",
+   "vendor": "qualcomm",
+   "what": "A hidden device-information screen that is not exposed to users.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "Settings > About phone still shows your device information -- that comes from elsewhere.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.qti.qualcomm.mstatssystemservice",
+   "label": "Qualcomm Mobile Statistics Service",
+   "vendor": "qualcomm",
+   "what": "Another network and app-usage statistics collector with no user-facing screen.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "No visible change reported.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.qti.snapdragon.qdcm_ff",
+   "label": "Qualcomm Display Colour Management",
+   "vendor": "qualcomm",
+   "what": "A colour-tuning tool for the display; on most phones it is dormant and any colour modes you see come from the phone maker's own settings.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "No visible change on most phones. If screen colours change, re-install it.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.qualcomm.atfwd",
+   "label": "Qualcomm AT Command Forwarder",
+   "vendor": "qualcomm",
+   "what": "Passes low-level 'AT' commands between Android and the modem -- the old modem control language.",
+   "risk": "advanced",
+   "advice": "disable",
+   "loses": "Community lists rate it removable, but it sits on the modem control path. On a phone you rely on for calls, disable and test calls, SMS and data before going further.",
+   "confidence": "low"
+  },
+  {
+   "pkg": "com.qualcomm.cabl",
+   "label": "Qualcomm Content Adaptive Backlight (CABL)",
+   "vendor": "qualcomm",
+   "what": "Adjusts screen contrast and backlight based on what is on screen, to save power. Not the same as automatic brightness.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "Slightly higher screen power use, but colours may look more accurate. Automatic brightness is unaffected.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.qualcomm.embms",
+   "label": "Qualcomm eMBMS (LTE Broadcast)",
+   "vendor": "qualcomm",
+   "what": "Support for LTE Broadcast, a way for mobile networks to send the same video or data to many phones at once. Almost no operator in South Asia uses it.",
+   "risk": "advanced",
+   "advice": "uninstall",
+   "loses": "You lose LTE Broadcast, which you almost certainly never use. It runs at boot but not continuously, so the battery gain is small. Normal calls and data are unaffected.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.qualcomm.interfacepermissions",
+   "label": "Qualcomm Interface Permissions",
+   "vendor": "qualcomm",
+   "what": "A completely empty placeholder package.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "Nothing changes.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.qualcomm.location",
+   "label": "Qualcomm Location Service (IZat / GNSS Assistance)",
+   "vendor": "qualcomm",
+   "what": "Qualcomm's assisted-GPS service. It downloads predicted satellite data so GPS locks on in seconds instead of minutes. It also periodically sends a device ID, your location and nearby cell towers and Wi-Fi networks to Qualcomm's servers, which is why privacy lists flag it.",
+   "risk": "advanced",
+   "advice": "disable",
+   "loses": "GPS may still work but can take minutes instead of seconds to get a fix, and some apps may fail to get a location at all. Reports also exist of boot loops when this is removed together with Android's fused location provider. If privacy is the concern, prefer denying it network and location access, or disabling it, rather than uninstalling.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.qualcomm.location.XT",
+   "label": "Qualcomm IZat XT",
+   "vendor": "qualcomm",
+   "what": "A hidden companion to Qualcomm's location service, part of the IZat/XTRA assisted-location system that reports location data back to Qualcomm.",
+   "risk": "advanced",
+   "advice": "disable",
+   "loses": "Mainly a privacy gain. Some risk of slower GPS fixes. Disable first and check that maps and navigation still find you quickly.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.qualcomm.location.XT.setup",
+   "label": "Qualcomm IZat XT Setup",
+   "vendor": "qualcomm",
+   "what": "The one-time setup/consent screen for Qualcomm's IZat location service. Hidden from the app list.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "No visible change. It only ever shows a legal notice.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.qualcomm.qcrilmsgtunnel",
+   "label": "Qualcomm RIL Message Tunnel",
+   "vendor": "qualcomm",
+   "what": "A message channel between Android and the Qualcomm modem, used for SIM, SMS and 5G signalling -- especially on dual-SIM phones.",
+   "risk": "expert",
+   "advice": "disable",
+   "loses": "Reported to break calls after a reboot on some phones, and to stop 5G working on the second SIM. The Edge 50 Fusion is a dual-SIM device, so this is a real risk. Disable only, never uninstall, and re-enable at the first sign of call or SIM trouble.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.qualcomm.qti.autoregistration",
+   "label": "Qualcomm Auto Registration",
+   "vendor": "qualcomm",
+   "what": "Collects device activation data to register the warranty remotely. In 2019 a version of this package was caught sending IMEI and SIM identifiers unencrypted to a server in China on Nokia phones; the maker called it a mistake.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "No visible change. Warranty registration is normally handled by Motorola's own account app instead.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.qualcomm.qti.callenhancement",
+   "label": "Qualcomm Call Enhancement",
+   "vendor": "qualcomm",
+   "what": "Claims to improve call audio quality. It also has call-recording capability, and a 2019 vulnerability (CVE-2019-15472) allowed unauthorised microphone recording through it.",
+   "risk": "advanced",
+   "advice": "disable",
+   "loses": "Call audio may sound slightly different. Because it touches the call path, disable first and make a test call before considering full removal.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.qualcomm.qti.carrierconfigure",
+   "label": "Qualcomm Carrier Configure",
+   "vendor": "qualcomm",
+   "what": "Applies operator-specific network configuration on phones that use Qualcomm's own version of this component.",
+   "risk": "unsafe",
+   "advice": "never",
+   "loses": "Mobile data, MMS and VoLTE settings for your operator can break. Unlikely on a Motorola but must never be offered for removal.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.qualcomm.qti.cne",
+   "label": "Qualcomm Connectivity Engine (CNE)",
+   "vendor": "qualcomm",
+   "what": "Manages the hand-off between mobile data and Wi-Fi and picks the better-performing connection -- the machinery behind settings such as 'automatically switch to mobile data when Wi-Fi is poor'.",
+   "risk": "expert",
+   "advice": "disable",
+   "loses": "Wi-Fi and mobile data can both become noticeably less reliable, with the phone clinging to a dead Wi-Fi network instead of switching to mobile data. Best left in place.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.qualcomm.qti.devicestatisticsservice",
+   "label": "Qualcomm Device Statistics Service",
+   "vendor": "qualcomm",
+   "what": "Records statistics about how you use the phone -- data, Wi-Fi, battery, app usage, messages sent.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "No visible change. Android's own battery and data screens are separate.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.qualcomm.qti.extsettings",
+   "label": "Qualcomm Extended Settings",
+   "vendor": "qualcomm",
+   "what": "On phones that use Qualcomm's own settings replacements, this is needed for the Wi-Fi hotspot.",
+   "risk": "unsafe",
+   "advice": "never",
+   "loses": "Hotspot may break. Rated 'unsafe' by community lists. Unlikely on a Motorola.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.qualcomm.qti.gpudrivers",
+   "label": "Qualcomm Adreno GPU Drivers (name ends in a chipset codename)",
+   "vendor": "qualcomm",
+   "what": "The graphics drivers for the Adreno GPU, shipped as an updatable app. The real package name always has a chipset codename and Android version appended, for example com.qualcomm.qti.gpudrivers.pineapple.api34 -- the exact suffix for the Snapdragon 7s Gen 2 in the Edge 50 Fusion is not something we could source, so the app must match on the com.qualcomm.qti.gpudrivers. prefix rather than a hard-coded name.",
+   "risk": "unsafe",
+   "advice": "never",
+   "loses": "Removing the GPU driver package can leave the phone unable to draw the screen -- a black screen or boot loop. Never offer any package starting com.qualcomm.qti.gpudrivers. for removal.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.qualcomm.qti.ims",
+   "label": "Qualcomm IMS Settings",
+   "vendor": "qualcomm",
+   "what": "A hidden settings screen for IMS (internet-based calling). The only user-facing option it exposes is auto-rejecting incoming calls.",
+   "risk": "advanced",
+   "advice": "disable",
+   "loses": "Community lists rate this safe to remove, but it sits inside the IMS/calling stack, so on a phone you rely on for calls the cautious move is to disable rather than uninstall and confirm VoLTE still works.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.qualcomm.qti.lpa",
+   "label": "Qualcomm Local Profile Assistant (eSIM)",
+   "vendor": "qualcomm",
+   "what": "Handles eSIM profiles -- downloading and switching between operator subscriptions stored in the phone rather than on a plastic SIM.",
+   "risk": "expert",
+   "advice": "disable",
+   "loses": "eSIM setup and switching can stop working. Harmless to lose if you only ever use physical SIM cards, but the Edge 50 Fusion's eSIM support varies by region, so do not assume.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.qualcomm.qti.modemtestmode",
+   "label": "Qualcomm Modem Test Mode",
+   "vendor": "qualcomm",
+   "what": "An engineering tool for testing the modem. Not reachable in normal use.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "No visible change. It is a test harness, not part of the live modem path.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.qualcomm.qti.networksetting",
+   "label": "Qualcomm Network Settings (hidden)",
+   "vendor": "qualcomm",
+   "what": "A hidden engineering menu for choosing network modes (2G/3G/4G only) and toggling VoLTE.",
+   "risk": "expert",
+   "advice": "disable",
+   "loses": "You lose a hidden diagnostic menu, and possibly the VoLTE toggle on some builds. Not worth touching.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.qualcomm.qti.perfdump",
+   "label": "Qualcomm Performance Dump",
+   "vendor": "qualcomm",
+   "what": "A developer logging tool that dumps performance information about running services.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "No visible change. Only useful to engineers.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.qualcomm.qti.poweroffalarm",
+   "label": "Qualcomm Power-off Alarm",
+   "vendor": "qualcomm",
+   "what": "Lets an alarm wake the phone from a powered-off state.",
+   "risk": "expert",
+   "advice": "disable",
+   "loses": "Alarms may no longer sound if the phone is switched off. Minor, but worth knowing if you rely on alarms.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.qualcomm.qti.qccauthmgr",
+   "label": "Qualcomm QCC Auth Manager",
+   "vendor": "qualcomm",
+   "what": "Part of Qualcomm's analytics/feedback stack; not reachable by users.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "No visible change reported.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.qualcomm.qti.qccnetstat",
+   "label": "Qualcomm QCC Network Statistics",
+   "vendor": "qualcomm",
+   "what": "Collects network usage statistics for Qualcomm analytics. Android's own data-usage screen does not depend on it.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "No visible change reported.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.qualcomm.qti.qcolor",
+   "label": "Qualcomm QColor",
+   "vendor": "qualcomm",
+   "what": "A Qualcomm enhanced-colour service that no app appears to use.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "No visible change reported.",
+   "confidence": "low"
+  },
+  {
+   "pkg": "com.qualcomm.qti.qdma",
+   "label": "Qualcomm Device Management and Analytics (QDMA)",
+   "vendor": "qualcomm",
+   "what": "Collects logs, crash reports and network data for Qualcomm.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "No visible change. Less background data collection.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.qualcomm.qti.qmmi",
+   "label": "Qualcomm QMMI Hardware Test",
+   "vendor": "qualcomm",
+   "what": "The factory/service-centre test app used to check that the screen, speakers, sensors and so on work. Hidden from users.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "A repair shop would lose one diagnostic tool. Nothing you use is affected.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.qualcomm.qti.qms.service.connectionsecurity",
+   "label": "Qualcomm QMS Connection Security",
+   "vendor": "qualcomm",
+   "what": "Another Qualcomm telemetry service, documented as connecting in the background to a Qualcomm telemetry host.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "No visible change. Purely reduces background data and reporting.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.qualcomm.qti.qms.service.credentials",
+   "label": "Qualcomm QMS Credentials Service",
+   "vendor": "qualcomm",
+   "what": "Part of Qualcomm's Quality Management Service family; community analysis found only logging code.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "No visible change reported.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.qualcomm.qti.qms.service.telemetry",
+   "label": "Qualcomm QMS Telemetry",
+   "vendor": "qualcomm",
+   "what": "Sends diagnostic and usage telemetry to Qualcomm's servers. Purely data collection -- no user-facing feature.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "Nothing stops working. You stop sending diagnostics to Qualcomm.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.qualcomm.qti.qms.service.trustzoneaccess",
+   "label": "Qualcomm QMS TrustZone Access",
+   "vendor": "qualcomm",
+   "what": "Despite the security-sounding name, community analysis found it only logs secure-area access rather than providing it.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "No visible change reported. The actual secure hardware is in firmware, not this app.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.qualcomm.qti.qs",
+   "label": "Qualcomm Quick Settings (mobile data)",
+   "vendor": "qualcomm",
+   "what": "Provides the mobile-data quick-settings tile on phones that use Qualcomm's replacements for standard Android components.",
+   "risk": "unsafe",
+   "advice": "never",
+   "loses": "You may lose the ability to turn mobile data on and off. Unlikely on a Motorola.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.qualcomm.qti.rcsimsbootstraputil",
+   "label": "Qualcomm RCS/IMS Bootstrap Utility",
+   "vendor": "qualcomm",
+   "what": "Sets up RCS -- the newer chat standard that replaces SMS in Google Messages.",
+   "risk": "advanced",
+   "advice": "disable",
+   "loses": "RCS chat features (typing indicators, read receipts, high-quality media in Google Messages) may stop working. Plain SMS is unaffected.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.qualcomm.qti.seccamservice",
+   "label": "Qualcomm Secure Camera Service",
+   "vendor": "qualcomm",
+   "what": "A background service that community analysis found only collects camera data rather than providing camera function.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "The camera itself is unaffected. If you notice any camera fault, re-install it.",
+   "confidence": "low"
+  },
+  {
+   "pkg": "com.qualcomm.qti.services.systemhelper",
+   "label": "Qualcomm System Helper Service",
+   "vendor": "qualcomm",
+   "what": "A privileged background service with power, phone-state and settings permissions. Its purpose is not clearly documented.",
+   "risk": "expert",
+   "advice": "disable",
+   "loses": "On at least one Xiaomi device, uninstalling it stopped apps running at all. Unknown on Motorola. Leave it in place.",
+   "confidence": "low"
+  },
+  {
+   "pkg": "com.qualcomm.qti.simcontacts",
+   "label": "Qualcomm SIM Contacts",
+   "vendor": "qualcomm",
+   "what": "A hidden tool for reading and editing contacts stored on the SIM card.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "You may lose the option to import contacts from a SIM. Most people never use this.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.qualcomm.qti.smq",
+   "label": "Qualcomm Technology Reporting (QTR/SMQ)",
+   "vendor": "qualcomm",
+   "what": "Sends hardware and software configuration and performance data to Qualcomm. Contains a hidden 'Hardware Feedback' consent screen.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "No visible change. Stops the hardware feedback reporting.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.qualcomm.qti.telephonyservice",
+   "label": "Qualcomm Telephony Service",
+   "vendor": "qualcomm",
+   "what": "Handles voice processing during phone calls on Qualcomm chipsets. This is core call machinery, not an app.",
+   "risk": "unsafe",
+   "advice": "never",
+   "loses": "Removing or disabling this can stop phone calls working, or make callers unable to hear you. The Motorola Edge 50 Fusion uses a Qualcomm Snapdragon 7s Gen 2, so this package applies to it. Do not offer this for removal.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.qualcomm.qti.tetherservice",
+   "label": "Qualcomm Tether Service",
+   "vendor": "qualcomm",
+   "what": "On some phones (mostly Chinese brands that use Qualcomm's own versions of standard apps) this provides Wi-Fi hotspot/tethering.",
+   "risk": "unsafe",
+   "advice": "never",
+   "loses": "Wi-Fi hotspot and USB tethering can stop working. Unlikely to be present on a Motorola, which uses Android's standard tethering, but if it is present, do not remove it.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.qualcomm.qti.uceShimService",
+   "label": "Qualcomm UCE Shim Service",
+   "vendor": "qualcomm",
+   "what": "A translation layer between Android's IMS stack and the Qualcomm modem, used for RCS chat, VoLTE and Wi-Fi calling.",
+   "risk": "expert",
+   "advice": "never",
+   "loses": "Likely to break RCS chat, VoLTE, Wi-Fi calling and some operator settings. Not worth removing.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.qualcomm.qti.uim",
+   "label": "Qualcomm UIM Remote SIM Lock Service",
+   "vendor": "qualcomm",
+   "what": "Background service related to SIM/R-UIM cards and remote SIM locking.",
+   "risk": "advanced",
+   "advice": "disable",
+   "loses": "Mostly relevant to operator-locked handsets. Small risk to SIM handling -- disable rather than uninstall.",
+   "confidence": "low"
+  },
+  {
+   "pkg": "com.qualcomm.qti.uimGbaApp",
+   "label": "Qualcomm UIM GBA Service",
+   "vendor": "qualcomm",
+   "what": "SIM-card authentication helper (GBA -- generic bootstrapping architecture), used by some operator services.",
+   "risk": "advanced",
+   "advice": "disable",
+   "loses": "Some operator authentication services could fail. Rarely used outside operator-specific apps.",
+   "confidence": "low"
+  },
+  {
+   "pkg": "com.qualcomm.qti.workloadclassifier",
+   "label": "Qualcomm Workload Classifier",
+   "vendor": "qualcomm",
+   "what": "Categorises running apps, most likely so the chipset can schedule CPU work efficiently.",
+   "risk": "expert",
+   "advice": "disable",
+   "loses": "Possible worse performance or battery life. Its exact role is not publicly documented, so treat with caution.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.qualcomm.qtil.aptxals",
+   "label": "Qualcomm aptX ALS",
+   "vendor": "qualcomm",
+   "what": "A hidden Bluetooth audio test/sample component for Qualcomm's aptX codecs. The actual aptX codec support lives in the Bluetooth stack, not here.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "Bluetooth audio quality is unaffected in reports. If your headphones lose aptX, re-install it.",
+   "confidence": "low"
+  },
+  {
+   "pkg": "com.qualcomm.qtil.btdsda",
+   "label": "Qualcomm Bluetooth Dual-SIM Call Handling",
+   "vendor": "qualcomm",
+   "what": "Hidden Bluetooth call handling (answer, hang up, conference) for dual-SIM phones.",
+   "risk": "advanced",
+   "advice": "disable",
+   "loses": "On at least one device, disabling this forced all call audio out of the earpiece regardless of the speaker/Bluetooth choice. Test a Bluetooth call before keeping it disabled.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.qualcomm.svi",
+   "label": "Qualcomm Sunlight Visibility Improvement",
+   "vendor": "qualcomm",
+   "what": "A hidden display-enhancement setting not exposed to users.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "No visible change reported.",
+   "confidence": "low"
+  },
+  {
+   "pkg": "com.qualcomm.timeservice",
+   "label": "Qualcomm Time Service",
+   "vendor": "qualcomm",
+   "what": "Keeps the clock correct across reboots by remembering the offset between your set time and the chipset's own clock.",
+   "risk": "expert",
+   "advice": "disable",
+   "loses": "The clock may drift or reset to a wrong time after a reboot, which in turn can break secure connections, banking apps and alarms. Very little to gain -- leave it alone unless you have a specific reason.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.qualcomm.wfd.service",
+   "label": "Qualcomm Wi-Fi Display Service",
+   "vendor": "qualcomm",
+   "what": "Provides Miracast -- casting your screen to a TV over Wi-Fi Direct.",
+   "risk": "advanced",
+   "advice": "disable",
+   "loses": "Screen casting to a TV over Miracast stops working. Casting through Chromecast/Google Home is separate and unaffected.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.quicinc.voice.activation",
+   "label": "Qualcomm Voice Assist / Voice Activation",
+   "vendor": "qualcomm",
+   "what": "Always-listening voice wake-word detection from Qualcomm, running constantly in the background.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "Any chipset-level voice wake word stops working. Google Assistant's own 'Hey Google' is separate and unaffected.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.UCMobile.intl",
+   "label": "UC Browser",
+   "vendor": "unknown",
+   "what": "A web browser with a long history of privacy and security problems, occasionally preinstalled in South and Southeast Asia.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "You lose UC Browser. Any other browser still works.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.adobe.scan.android",
+   "label": "Adobe Scan",
+   "vendor": "unknown",
+   "what": "Document scanning and PDF app, named in reviews as a preinstall on Motorola Edge 50-series retail units.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "You lose Adobe Scan. Reinstallable from the Play Store. Not in the UAD-NG list, so package name verified from the Play Store listing instead.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.agoda.mobile.consumer",
+   "label": "Agoda",
+   "vendor": "unknown",
+   "what": "Hotel and flight booking app, sometimes preinstalled in Asian markets under a commercial deal.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "You lose Agoda. Reinstallable from the Play Store. Not in the UAD-NG list -- package name verified from the Play Store listing. We could not confirm it ships on the Edge 50 Fusion.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.aura.oobe.ml",
+   "label": "Aura for Motorola (alternate build)",
+   "vendor": "unknown",
+   "what": "HIGH-VALUE REMOVAL -- the same Aura silent-installer platform, shipped under a Motorola-specific package name on some builds. Shows a persistent notification until you agree to install games.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "Unsolicited game installs and their nagging notification stop. No genuine feature is lost. Can return after a major system update.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.booking",
+   "label": "Booking.com",
+   "vendor": "unknown",
+   "what": "Hotel-booking app, named in reviews as a preinstall on Motorola Edge 50-series retail units.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "You lose the Booking.com app. Reinstallable from the Play Store or usable through a web browser.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.digitalturbine.toolbar",
+   "label": "Digital Turbine Toolbar",
+   "vendor": "unknown",
+   "what": "HIGH-VALUE REMOVAL -- an adware component from Digital Turbine used to showcase sponsored apps.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "Sponsored app promotions stop. No genuine feature is lost.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.einnovation.temu",
+   "label": "Temu",
+   "vendor": "unknown",
+   "what": "Aggressive discount shopping app that has appeared as a paid preinstall on some budget and mid-range Android phones. Known for heavy notification and advertising behaviour.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "You lose Temu and its notifications. Reinstallable from the Play Store. Not in the UAD-NG list -- package name verified from the Play Store listing. We could not confirm it ships on the Edge 50 Fusion specifically.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.emoji.keyboard.touchpal",
+   "label": "TouchPal Emoji Keyboard",
+   "vendor": "unknown",
+   "what": "A third-party keyboard whose maker was banned from Google Play in 2019 over advertising abuse. Occasionally preinstalled.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "You lose this keyboard. Make sure another keyboard (such as Gboard) is set as your default first, or you will not be able to type. Removing a keyboard without a replacement active is one of the few genuinely disruptive removals.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.eterno",
+   "label": "Dailyhunt",
+   "vendor": "unknown",
+   "what": "Indian news-aggregator app, a frequent Indian preinstall. Heavy on notifications and advertising.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "You lose Dailyhunt and its notifications. Reinstallable from the Play Store.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.eterno.shortvideos",
+   "label": "Josh",
+   "vendor": "unknown",
+   "what": "Indian short-video app, a frequent Indian preinstall alongside Dailyhunt.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "You lose Josh. Reinstallable from the Play Store. Not in the UAD-NG list -- package name verified from the Play Store listing.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.facebook.lite",
+   "label": "Facebook Lite",
+   "vendor": "unknown",
+   "what": "A cut-down Facebook app aimed at low-data markets. Often preinstalled instead of, or alongside, the full app on South Asian retail units.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "You lose Facebook Lite. Reinstallable from the Play Store.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.facebook.orca",
+   "label": "Facebook Messenger",
+   "vendor": "unknown",
+   "what": "Meta's chat app, sometimes preinstalled alongside the Facebook stubs.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "You lose Messenger chat. Reinstallable from the Play Store.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.flipkart.android",
+   "label": "Flipkart",
+   "vendor": "unknown",
+   "what": "Indian shopping app, preinstalled with ads on Indian retail units.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "You lose Flipkart. Reinstallable from the Play Store; Flipkart does not deliver to Bangladesh.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.glance.internet",
+   "label": "Glance (trending stories on lock screen)",
+   "vendor": "unknown",
+   "what": "HIGH-VALUE REMOVAL -- another Glance build that pushes unsolicited 'trending' stories onto the lock screen.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "Lock-screen story feed stops. Nothing you need is lost. Can return after a major system update.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.instagram.android",
+   "label": "Instagram",
+   "vendor": "unknown",
+   "what": "Meta's photo and video sharing app, preinstalled under a commercial deal.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "You lose Instagram. Reinstallable from the Play Store.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.ironsource.appcloud.oobe",
+   "label": "AppCloud (ironSource)",
+   "vendor": "unknown",
+   "what": "HIGH-VALUE REMOVAL -- the older 'AppCloud' generation of the same advertising-company installer. It asks your age and gender, then pushes a list of apps to install at first setup.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "You stop being pushed sponsored apps. No genuine feature is lost.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.linkedin.android",
+   "label": "LinkedIn",
+   "vendor": "unknown",
+   "what": "Professional networking app, named in reviews as a preinstall on Motorola Edge 50-series retail units.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "You lose the LinkedIn app. Reinstallable from the Play Store.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.netflix.mediaclient",
+   "label": "Netflix",
+   "vendor": "unknown",
+   "what": "The Netflix streaming app, preinstalled under a commercial deal.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "You lose Netflix. Reinstallable from the Play Store. Some preinstalled bundles include a free trial that is only redeemable through the preinstalled copy.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.netflix.partner.activation",
+   "label": "Netflix Partner Activation",
+   "vendor": "unknown",
+   "what": "A tiny helper whose job is to activate a preinstalled Netflix deal and place the Netflix icon on your home screen. Not the Netflix app itself.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "You may lose an included Netflix trial offer, if any. The Netflix app itself still works and can be installed from the Play Store.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.opera.branding",
+   "label": "Opera Branding Provider",
+   "vendor": "unknown",
+   "what": "A small companion package that applies partner branding to the preinstalled Opera browser. No user-facing function.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "No visible change.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.opera.mini.native",
+   "label": "Opera Mini",
+   "vendor": "unknown",
+   "what": "A data-saving web browser, preinstalled under commercial deals particularly in South Asia and Africa.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "You lose Opera Mini. Any other browser (including Chrome) still works. Reinstallable from the Play Store.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.opera.preinstall",
+   "label": "Opera Preinstall Data",
+   "vendor": "unknown",
+   "what": "A hidden helper that exists only to tag the preinstalled Opera browser with tracking/attribution codes so Opera can be paid for the placement.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "No visible change at all.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.phonepe.app",
+   "label": "PhonePe",
+   "vendor": "unknown",
+   "what": "Indian UPI payments app, preinstalled on Indian retail units.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "You lose PhonePe. If you have money or a linked bank mandate in it, check the account through another device or the web first. Reinstallable from the Play Store. UPI is India-only and of no use in Bangladesh.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.spotify.music",
+   "label": "Spotify",
+   "vendor": "unknown",
+   "what": "Music streaming app, commonly preinstalled under a commercial deal.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "You lose Spotify. Reinstallable from the Play Store.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.truecaller",
+   "label": "Truecaller",
+   "vendor": "unknown",
+   "what": "Caller ID and spam-call blocking app, very commonly preinstalled on South Asian retail units. It uploads contact and call metadata to build its directory, which is the main privacy concern.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "You lose caller ID for unknown numbers and Truecaller's spam blocking. If it is your default dialler or SMS app, set another one first. Reinstallable from the Play Store. Not in the UAD-NG list -- package name verified from the Play Store listing.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "com.whatsapp",
+   "label": "WhatsApp",
+   "vendor": "unknown",
+   "what": "Meta's messaging app. Frequently preinstalled on Motorola retail units in South Asia.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "You lose WhatsApp and its chat history unless you have a backup. Only remove this if you genuinely do not use it -- in Bangladesh and India it is often the main messaging app. Reinstallable from the Play Store.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "com.zhiliaoapp.musically",
+   "label": "TikTok",
+   "vendor": "unknown",
+   "what": "Short-video app, named in reviews as a preinstall on Motorola Edge 50-series retail units.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "You lose TikTok. Reinstallable from the Play Store.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "in.mohalla.sharechat",
+   "label": "ShareChat",
+   "vendor": "unknown",
+   "what": "Indian regional-language social app, a frequent Indian preinstall.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "You lose ShareChat. Reinstallable from the Play Store.",
+   "confidence": "high"
+  },
+  {
+   "pkg": "in.mohalla.video",
+   "label": "Moj",
+   "vendor": "unknown",
+   "what": "Indian short-video app from the ShareChat group, a frequent Indian preinstall.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "You lose Moj. Reinstallable from the Play Store. Not in the UAD-NG list -- package name verified from the app's public documentation.",
+   "confidence": "medium"
+  },
+  {
+   "pkg": "in.startv.hotstar",
+   "label": "Hotstar / JioHotstar",
+   "vendor": "unknown",
+   "what": "Indian video streaming app, preinstalled on some Indian retail units. Note that Disney+ Hotstar and JioCinema merged into 'JioHotstar' in 2025, so the current package name and branding may have changed -- this needs re-checking against the live Play Store listing before shipping.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "You lose the Hotstar app. Reinstallable from the Play Store. Because the app was rebranded, the package name here is not confirmed against a current source.",
+   "confidence": "low"
+  },
+  {
+   "pkg": "net.one97.paytm",
+   "label": "Paytm",
+   "vendor": "unknown",
+   "what": "Indian payments and wallet app, preinstalled on some Indian retail units.",
+   "risk": "safe",
+   "advice": "uninstall",
+   "loses": "You lose Paytm. Check for any wallet balance first. Reinstallable from the Play Store. Not in the UAD-NG list -- package name verified from the Play Store listing.",
+   "confidence": "medium"
+  }
+ ]
+}

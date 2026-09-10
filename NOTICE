@@ -1,0 +1,90 @@
+Declutter
+Copyright 2026 Aninda Sundar Howlader (GRU953)
+
+সহজ প্রযুক্তি। সবার জন্য।
+Simple technology. For everyone.
+
+--------------------------------------------------------------------------------
+1. THE CODE — Apache License, Version 2.0
+--------------------------------------------------------------------------------
+   Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+   these files except in compliance with the License. You may obtain a copy of the
+   License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software distributed
+   under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+   CONDITIONS OF ANY KIND, either express or implied. See the License for the
+   specific language governing permissions and limitations under the License.
+
+The full text is in LICENSE.
+
+--------------------------------------------------------------------------------
+2. THE GRU953 MARKS — not licensed
+--------------------------------------------------------------------------------
+The name GRU953, the GRU953 wordmark, the Soaring Bird, the app-icon tile, and any
+lockup of them are trademarks of Aninda Sundar Howlader. They are NOT licensed by
+the licence above. Apache-2.0 section 6 expressly withholds trademark permission.
+
+Without asking anyone:
+  · You MAY fork this repository, change it, and ship what you build with it.
+  · You MAY show the marks to refer to GRU953 — a credit, a comparison, an article.
+  · You MAY NOT put the marks on your own product, or on a fork, as if it were GRU953.
+  · You MAY NOT use a name confusable with GRU953 for a competing tool.
+
+Replace the identity with your own and everything else here is yours to use.
+
+--------------------------------------------------------------------------------
+3. THIRD-PARTY CODE LINKED INTO THE APP
+--------------------------------------------------------------------------------
+  · Shizuku API (dev.rikka.shizuku:api, dev.rikka.shizuku:provider) 13.1.5
+    MIT Licence. Copyright (c) 2021 RikkaW.
+    https://github.com/RikkaApps/Shizuku-API
+
+  · AndroidHiddenApiBypass (org.lsposed.hiddenapibypass) 6.1
+    Apache License 2.0. Copyright LSPosed contributors.
+    https://github.com/LSPosed/AndroidHiddenApiBypass
+
+  · AndroidX, Jetpack Compose and Kotlin libraries
+    Apache License 2.0. Copyright The Android Open Source Project, JetBrains s.r.o.
+
+Nothing in this repository is derived from a copyleft-licensed work. The privileged
+calls were written from the Android Open Source Project's own AIDL definitions
+(Apache-2.0), not adapted from any existing debloating application.
+
+--------------------------------------------------------------------------------
+4. BUNDLED TYPEFACES — SIL Open Font Licence 1.1
+--------------------------------------------------------------------------------
+  · Sora — Copyright 2020 The Sora Project Authors
+  · Noto Sans — Copyright 2022 The Noto Project Authors
+  · JetBrains Mono — Copyright 2020 The JetBrains Mono Project Authors
+
+Each is bundled subset to the Latin ranges the interface uses. Subsetting is a
+permitted modification under the OFL, and none of these fonts declares a Reserved
+Font Name, so each keeps its own name. The licence texts travel inside the app at
+app/src/main/assets/licences/ and are shipped in the APK.
+
+--------------------------------------------------------------------------------
+5. THE PACKAGE CATALOGUE
+--------------------------------------------------------------------------------
+app/src/main/assets/catalogue.json is original work, licensed Apache-2.0 with the
+rest of this repository. Its labels, descriptions and consequence text were written
+for it; no third-party package list is bundled, reproduced or derived from.
+
+Community debloating lists were read while researching which packages break what,
+alongside the target handset's own firmware and the Android Open Source Project.
+Those lists carry copyleft licences of their own and none of their data ships here:
+  · Universal Android Debloater Next Generation — GPL-3.0
+  · Muntashir Al-Islam's Android Debloat List — AGPL-3.0-or-later
+They are credited because their authors' work saved time, not because any of it was
+copied.
+
+--------------------------------------------------------------------------------
+
+This file is the NOTICE file required by section 4(d) of the Apache License, Version
+2.0. If you redistribute this work, this file must travel with it.
+
+Permissions and questions: aninda.sh15@gmail.com
+
+This is not legal advice. It was written by the author, who is not a lawyer.

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  SPDX-License-Identifier: Apache-2.0
+  Copyright 2026 Aninda Sundar Howlader (GRU953)
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <path android:pathData="M2,12 A10,10 0 1,1 22,12 A10,10 0 1,1 2,12" android:strokeColor="#FFFFFF" android:strokeWidth="2" android:strokeLineCap="round" android:strokeLineJoin="round" android:fillColor="@android:color/transparent" />
+    <path android:pathData="M9.1,9.3 A2.9,2.9 0 1,1 12,12.4 L12,14.1" android:strokeColor="#FFFFFF" android:strokeWidth="2" android:strokeLineCap="round" android:strokeLineJoin="round" android:fillColor="@android:color/transparent" />
+    <path android:pathData="M11.05,17.2 A0.95,0.95 0 1,1 12.95,17.2 A0.95,0.95 0 1,1 11.05,17.2" android:fillColor="#FFFFFF" />
+</vector>
