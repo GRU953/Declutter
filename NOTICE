@@ -69,16 +69,20 @@ app/src/main/assets/licences/ and are shipped in the APK.
 5. THE PACKAGE CATALOGUE
 --------------------------------------------------------------------------------
 app/src/main/assets/catalogue.json is original work, licensed Apache-2.0 with the
-rest of this repository. Its labels, descriptions and consequence text were written
-for it; no third-party package list is bundled, reproduced or derived from.
+rest of this repository. Every label, description and consequence sentence in it was
+written for it. No third-party package list is bundled here, and no third-party
+wording is reproduced — a build-time test (CatalogueCopyTest) fails if a quotation
+or an attribution ever reappears in it.
 
-Community debloating lists were read while researching which packages break what,
-alongside the target handset's own firmware and the Android Open Source Project.
-Those lists carry copyleft licences of their own and none of their data ships here:
+What the research drew on, stated plainly: the target handset's own firmware, the
+Android Open Source Project, and two community debloating lists that carry copyleft
+licences of their own:
   · Universal Android Debloater Next Generation — GPL-3.0
   · Muntashir Al-Islam's Android Debloat List — AGPL-3.0-or-later
-They are credited because their authors' work saved time, not because any of it was
-copied.
+Those lists were read to learn which packages are reported to break what. Which
+package breaks which feature is a fact about Android, not an authored work, and none
+of their files, text or data ships here. They are credited because their authors'
+work saved a great deal of time.
 
 --------------------------------------------------------------------------------
 
